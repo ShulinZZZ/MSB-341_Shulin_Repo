@@ -1,0 +1,193 @@
+:root {
+  --bg: #faf9f7;
+  --card: #ffffff;
+  --ink: #1f1c1a;
+  --ink-soft: #6b6560;
+  --line: #e8e4df;
+  --accent: #2f6d4f;
+  --accent-soft: #e4f0e9;
+  --miss: #ece9e5;
+  --danger: #b3453a;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.app {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.add-habit-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.add-habit-form input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  background: var(--card);
+  color: var(--ink);
+}
+
+.add-habit-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.add-habit-form button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-habit-form button:hover {
+  opacity: 0.9;
+}
+
+.habit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.habit-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.habit-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toggle-today {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.toggle-today[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.habit-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.habit-name {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.streak {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.delete-habit {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.delete-habit:hover {
+  background: var(--miss);
+  color: var(--danger);
+}
+
+.history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.history .day {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--miss);
+}
+
+.history .day.hit {
+  background: var(--accent);
+}
+
+.history .day.future {
+  background: transparent;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--ink-soft);
+  margin-top: 40px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17140f;
+    --card: #221e18;
+    --ink: #f1ede6;
+    --ink-soft: #a39c92;
+    --line: #35302a;
+    --accent: #4c9c73;
+    --accent-soft: #1f3428;
+    --miss: #2c2822;
+  }
+}

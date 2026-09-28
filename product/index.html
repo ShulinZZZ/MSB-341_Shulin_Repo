@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Habit Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Habit Tracker</h1>
+      <p class="subtitle">Show up daily. Watch the streak.</p>
+    </header>
+
+    <form id="add-habit-form" class="add-habit-form">
+      <input type="text" id="habit-name" placeholder="Add a habit, e.g. Read 20 min" required maxlength="60">
+      <button type="submit">Add</button>
+    </form>
+
+    <ul id="habit-list" class="habit-list"></ul>
+
+    <p id="empty-state" class="empty-state" hidden>
+      No habits yet. Add one above to get started.
+    </p>
+  </div>
+
+  <template id="habit-template">
+    <li class="habit-card">
+      <div class="habit-main">
+        <button class="toggle-today" type="button" aria-pressed="false">
+          <span class="check">✓</span>
+        </button>
+        <div class="habit-info">
+          <span class="habit-name"></span>
+          <span class="streak"></span>
+        </div>
+        <button class="delete-habit" type="button" aria-label="Delete habit">×</button>
+      </div>
+      <div class="history"></div>
+    </li>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
