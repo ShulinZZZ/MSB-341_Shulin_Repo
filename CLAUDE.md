@@ -5,16 +5,24 @@ a brand new session act like a colleague who already knows what you are working 
 
 ## What I am building
 
-- **What it is:** [one sentence]
-- **Who it is for:** [a specific person or segment, see discovery/personas.md]
-- **My role:** [solo builder, or your role on a team]
-- **Why they would use it:** [the problem, in their words]
+- **What it is:** A web app for pre-med students to log MCAT study sessions and practice
+  scores, and view the same lesson content in three formats (visual, video-style, text) to
+  find what actually helps them learn.
+- **Who it is for:** Pre-med students actively prepping for the MCAT (see
+  discovery/personas.md — not yet filled in with real interview data).
+- **My role:** Product lead, PM, and builder on a team.
+- **Why they would use it:** Assumed problem, not yet validated by interviews — existing
+  tools (UWorld, AAMC, Kaplan, Blueprint, Anki, Khan Academy) each cover one slice, and
+  there's no single place that shows whether studying is actually moving the score or which
+  topics are still weak.
 
 ## Current state
 
-- **This sprint's goal:** [from sprints/sprint-N-plan.md, update each sprint]
-- **Live at:** [URL]
-- **Biggest open risk:** [the thing most likely to make this fail]
+- **This sprint's goal:** Decide what project my team wants to work on for the sandbox and
+  start interviewing customers and building prototypes (see sprints/sprint-1-plan.md).
+- **Live at:** Not yet deployed
+- **Biggest open risk:** Lacking the technical skill to build a real personalized/adaptive
+  studying feature, and the cost of obtaining accurate data to train it on.
 
 ## How this repo works
 
@@ -30,8 +38,9 @@ a brand new session act like a colleague who already knows what you are working 
 
 ## Stack and conventions
 
-- **Stack:** [fill in]
-- **Deploy:** [how a push becomes live]
+- **Stack:** Vanilla HTML/CSS/JS, no framework, no backend. Data persists in the browser via
+  localStorage (per specs/001 and specs/002).
+- **Deploy:** Not yet set up.
 - **Testing and style:** [fill in as they emerge]
 
 ## Working with me

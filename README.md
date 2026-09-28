@@ -1,18 +1,24 @@
-# [What you are building]
+# MCAT Prep Tracker
 
-> One sentence: what this is and who it is for.
+> A study tracker and multi-format lesson tool that helps pre-med students see what's
+> actually moving their MCAT score.
 
-**Live:** [URL]
-**Built by:** [your name], MSB 341 Product Management, BYU
+**Live:** Not yet deployed
+**Built by:** Shulin Zhang, MSB 341 Product Management, BYU
 
 ## Context
 
 Fill this in during Sprint 1 and keep it current. Every sprint is read against it.
 
-- **What I am building:**
-- **Who it is for:**
-- **My role:** [solo builder, or your role on a team]
-- **My user:** [the specific person who will use this, and how you reach them]
+- **What I am building:** A web app where pre-med students log MCAT study sessions and
+  practice scores, and view the same lesson content in three formats (visual, video-style,
+  text) to find what actually helps them learn.
+- **Who it is for:** Pre-med students actively studying for the MCAT.
+- **My role:** Product lead, PM, and builder on a team.
+- **My user:** Pre-med students prepping for the MCAT. Starting with roommates and friends
+  who are pre-med — some currently studying for the exam, one who scored very high, others
+  taking coursework that overlaps with tested material — and reaching more through BYU's
+  Pre-Health Advising Center.
 
 If your situation changes, revise this and note what changed. That is normal; a silent
 mismatch between this file and your work is not.
