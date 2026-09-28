@@ -3,7 +3,7 @@
 > A study tracker and multi-format lesson tool that helps pre-med students see what's
 > actually moving their MCAT score.
 
-**Live:** Not yet deployed
+**Live:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
 **Built by:** Shulin Zhang, MSB 341 Product Management, BYU
 
 ## Context

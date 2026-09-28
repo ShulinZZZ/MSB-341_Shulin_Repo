@@ -20,7 +20,7 @@ a brand new session act like a colleague who already knows what you are working 
 
 - **This sprint's goal:** Decide what project my team wants to work on for the sandbox and
   start interviewing customers and building prototypes (see sprints/sprint-1-plan.md).
-- **Live at:** Not yet deployed
+- **Live at:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
 - **Biggest open risk:** Lacking the technical skill to build a real personalized/adaptive
   studying feature, and the cost of obtaining accurate data to train it on.
 
@@ -40,7 +40,8 @@ a brand new session act like a colleague who already knows what you are working 
 
 - **Stack:** Vanilla HTML/CSS/JS, no framework, no backend. Data persists in the browser via
   localStorage (per specs/001 and specs/002).
-- **Deploy:** Not yet set up.
+- **Deploy:** GitHub Pages, serving straight from `main` (root). A push to `main` goes live
+  within a minute or two — no build step.
 - **Testing and style:** [fill in as they emerge]
 
 ## Working with me
