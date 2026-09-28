@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>To-Do List</h1>
+      <div id="user-bar" class="user-bar" hidden>
+        <span id="user-email"></span>
+        <button id="logout-btn" class="link-btn" type="button">Log out</button>
+      </div>
+    </header>
+
+    <p id="message" class="message" role="status" hidden></p>
+
+    <!-- Log in / sign up -->
+    <section id="auth-view" hidden>
+      <form id="auth-form" class="card">
+        <h2 id="auth-title">Log in</h2>
+        <label>Email
+          <input id="auth-email" type="email" autocomplete="email" required>
+        </label>
+        <label>Password
+          <input id="auth-password" type="password" autocomplete="current-password" minlength="6" required>
+        </label>
+        <button id="auth-submit" type="submit" class="primary">Log in</button>
+        <button id="google-btn" type="button" class="secondary">Continue with Google</button>
+        <div class="auth-links">
+          <button id="toggle-mode" type="button" class="link-btn">Need an account? Sign up</button>
+          <button id="forgot-btn" type="button" class="link-btn">Forgot password?</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Set a new password (after clicking a reset email link) -->
+    <section id="reset-view" hidden>
+      <form id="reset-form" class="card">
+        <h2>Set a new password</h2>
+        <label>New password
+          <input id="reset-password" type="password" autocomplete="new-password" minlength="6" required>
+        </label>
+        <button type="submit" class="primary">Save password</button>
+      </form>
+    </section>
+
+    <!-- To-dos -->
+    <section id="todo-view" hidden>
+      <form id="add-form" class="add-form">
+        <input id="add-title" type="text" placeholder="What needs doing?" maxlength="500" required aria-label="New to-do">
+        <input id="add-due" type="date" aria-label="Due date (optional)">
+        <button type="submit" class="primary">Add</button>
+      </form>
+      <ul id="todo-list" class="todo-list"></ul>
+      <p id="empty-state" class="empty" hidden>Nothing to do yet. Add your first to-do above.</p>
+    </section>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

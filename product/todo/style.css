@@ -1,0 +1,120 @@
+:root {
+  --bg: #f6f7f9;
+  --card: #ffffff;
+  --text: #1d2330;
+  --muted: #6b7280;
+  --border: #dde1e7;
+  --accent: #2f6fdb;
+  --accent-text: #ffffff;
+  --danger: #c0392b;
+  --overdue-bg: #fdecea;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14171c;
+    --card: #1e232b;
+    --text: #e6e9ee;
+    --muted: #9aa3b0;
+    --border: #333a45;
+    --accent: #5b8def;
+    --danger: #ef6b5b;
+    --overdue-bg: #3a2322;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.app {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+h1 { margin: 0; font-size: 1.75rem; }
+h2 { margin: 0 0 8px; font-size: 1.25rem; }
+
+.user-bar { color: var(--muted); font-size: 0.9rem; display: flex; gap: 10px; align-items: baseline; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label { display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; color: var(--muted); }
+
+input {
+  font: inherit;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  min-width: 0;
+}
+
+button { font: inherit; cursor: pointer; border-radius: 6px; padding: 8px 14px; }
+
+.primary { background: var(--accent); color: var(--accent-text); border: 1px solid var(--accent); }
+.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.link-btn { background: none; border: none; padding: 0; color: var(--accent); text-decoration: underline; }
+.danger { color: var(--danger); }
+
+.auth-links { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; font-size: 0.9rem; }
+
+.message {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin: 0 0 16px;
+}
+.message.error { border-left-color: var(--danger); }
+
+.add-form { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.add-form #add-title { flex: 1 1 220px; }
+
+.todo-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+
+.todo {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.todo.overdue { background: var(--overdue-bg); }
+.todo input[type="checkbox"] { width: 18px; height: 18px; flex: none; }
+.todo .title { flex: 1 1 200px; overflow-wrap: anywhere; }
+.todo.done .title { text-decoration: line-through; color: var(--muted); }
+.todo .due { font-size: 0.85rem; color: var(--muted); }
+.todo.overdue .due { color: var(--danger); font-weight: 600; }
+.todo .actions { display: flex; gap: 10px; font-size: 0.9rem; }
+.todo .edit-title { flex: 1 1 200px; }
+
+.empty { color: var(--muted); text-align: center; }
