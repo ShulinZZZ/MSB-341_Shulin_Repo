@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCAT Prep Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>MCAT Prep Tracker</h1>
+      <p class="subtitle">See what's actually moving your score.</p>
+    </header>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab-btn" data-tab="dashboard" aria-current="page">Dashboard</button>
+      <button class="tab-btn" data-tab="setup" aria-current="false">Setup</button>
+      <button class="tab-btn" data-tab="study" aria-current="false">Study Log</button>
+      <button class="tab-btn" data-tab="scores" aria-current="false">Practice Scores</button>
+      <button class="tab-btn" data-tab="lessons" aria-current="false">Lessons</button>
+    </nav>
+
+    <main>
+      <section id="panel-dashboard" class="panel"></section>
+      <section id="panel-setup" class="panel" hidden></section>
+      <section id="panel-study" class="panel" hidden></section>
+      <section id="panel-scores" class="panel" hidden></section>
+      <section id="panel-lessons" class="panel" hidden></section>
+    </main>
+  </div>
+
+  <script src="lessons-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
