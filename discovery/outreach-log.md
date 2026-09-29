@@ -18,12 +18,12 @@ here when you reach out, not afterward.
 
 ## Professors / advisors
 
-Target: talk to 3. **Result: 1 talked to (met twice), 2 reached out.**
+Target: talk to 3. **Result: 1 talked to (met twice), 1 meeting scheduled, 1 reached out.**
 
 | # | Who (role only) | Status | Key advice |
 |---|-----------------|--------|------------|
 | 1 | Local Sandbox program director | Met twice | Start with the idea whose customers are easiest to reach. As students our advantage is iterating faster and responding to customer requests more flexibly than bigger organizations. A prototype is enough to show customers; it doesn't need to be finished. |
-| 2 | BYU pre-health advisor (advises on MCAT prep) | Reached out | Not met yet |
+| 2 | BYU pre-health advisor (advises on MCAT prep) | Meeting scheduled | Not met yet |
 | 3 | IS professor (AI agentic systems course) | Reached out | Not met yet. Relevant to the personalization/AI risk |
 
 ## New leads from interviews

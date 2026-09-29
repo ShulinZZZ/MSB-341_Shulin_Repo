@@ -67,7 +67,7 @@ logged in the repo: see `discovery/outreach-log.md`,
 | People reached | 10 | 6 | No |
 | Interviews set up | 5 | 3 (1 done, 2 scheduled) | No |
 | Business ideas listed | 3 | 3 ([decision 002](../decisions/002-choose-mcat-prep-tracker.md)) | Yes |
-| Professors/advisors talked to | 3 | 1, the Sandbox director (met twice); 2 more reached out | No |
+| Professors/advisors talked to | 3 | 1, the Sandbox director (met twice); pre-health advisor meeting scheduled; 1 more reached out | No |
 | Team decided on one idea | 1 | MCAT Prep Tracker | Yes |
 | 3-page prototype | 1 | [Live](https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/) | Yes |
 
