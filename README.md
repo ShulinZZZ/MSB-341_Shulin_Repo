@@ -4,6 +4,8 @@
 > actually moving their MCAT score.
 
 **Live:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
+**Side project:** To-do list app with Supabase backend (spec 003) at
+https://msb-341shulinrepo-todo.vercel.app
 **Built by:** Shulin Zhang, MSB 341 Product Management, BYU
 
 ## Context

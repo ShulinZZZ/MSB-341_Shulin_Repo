@@ -12,8 +12,8 @@ See decisions/001-supabase-backend-for-todo-app.md.
 
 ## What we're building
 
-A single-page to-do app at `product/todo/`, hosted on Vercel (live URL: TBD,
-`<project>.vercel.app` once the Vercel project exists). Vercel serves the static files
+A single-page to-do app at `product/todo/`, hosted on Vercel at
+https://msb-341shulinrepo-todo.vercel.app. Vercel serves the static files
 only. Supabase is the whole backend, so there are no Vercel serverless functions.
 
 - **Accounts:** sign up and log in with email + password, or with Google (Supabase Auth).
@@ -69,7 +69,9 @@ password never go in this repo.**
 ## Setup notes
 
 - Vercel: import the GitHub repo, set Root Directory to `product/todo`, Framework Preset
-  "Other", no build command. Every push to `main` redeploys.
+  "Other", no build command. Every push to `main` redeploys. Use the stable domain above.
+  Per-deployment URLs (`...-<hash>-zslincogg-8689.vercel.app`) change every deploy and sit
+  behind Vercel's Deployment Protection login.
 - Supabase dashboard → Authentication → URL Configuration: set Site URL to the Vercel URL
   so confirmation and password-reset emails link back to the app. Add the live URL (and
   a local test URL) to Redirect URLs.
