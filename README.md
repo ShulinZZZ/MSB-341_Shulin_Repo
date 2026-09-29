@@ -46,7 +46,15 @@ whether a change to a prompt helped or hurt.
 
 ## Running it
 
-[How to run this locally. Fill in once you have a stack.]
+Open the live site: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
+
+No build step or install. To run locally, serve the repo root and open `/product/mcat/`:
+
+```bash
+npx serve .        # or: python -m http.server
+```
+
+Data is stored in your browser's localStorage, so each browser has its own data.
 
 ## Sprints
 
