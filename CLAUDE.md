@@ -18,8 +18,8 @@ a brand new session act like a colleague who already knows what you are working 
 
 ## Current state
 
-- **This sprint's goal:** Decide what project my team wants to work on for the sandbox and
-  start interviewing customers and building prototypes (see sprints/sprint-1-plan.md).
+- **This sprint's goal:** Finish the interviews and test the prototype with 10 pre-meds, to
+  get real user feedback before building more (see sprints/sprint-2-plan.md).
 - **Live at:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
 - **Biggest open risk:** Lacking the technical skill to build a real personalized/adaptive
   studying feature, and the cost of obtaining accurate data to train it on.
