@@ -24,8 +24,10 @@ the 5 interviews and the video are not in the repo.
 - **Interview and test notes:** `discovery/interviews/Gapmap MCAT Prep Web App.docx`
   (added 2026-10-12). It has 10 pre-med students (S01–S10, Oct 5–9, 20–30 min each; 3 freshmen,
   3 sophomores, 3 juniors, 1 senior) and 1 advisor (A01, Oct 9), each answering 10–15 questions.
-  Answers are recorded per participant. The Key Findings section still holds template text.
-- **Three Word summaries in the repo root (saved 2026-10-12):**
+  Answers are recorded per participant. The Key Findings section still holds template text. On
+  2026-10-12 the notes were also split into one Markdown file per session
+  (`discovery/interviews/002`–`012`).
+- **Three Word summaries in `discovery/interviews/` (saved 2026-10-12):**
   - *MCAT Prep Project Progress Report* (dated Oct 6): MCAT background research, a review of the
     Gapmap prototype, the added Knowledge Tree (4 branches, 16 twigs, 48 leaves), and an r/Mcat
     burnout thread.
@@ -48,8 +50,8 @@ Front-loaded in the repo; the rest of the sprint's work happened off-repo per yo
 The sessions show no circling or retries. The visible break is between plan and repo: on Oct 5
 the only prompt asked what to work on next, and nothing was committed after Oct 3. The interviews
 and tests ran Oct 5–9 outside these sessions. Their notes reached the repo only on Oct 12, the
-day of this review. `discovery/outreach-log.md` has not changed since 2026-09-28; the Oct 4
-request to update it did not produce a change to the file. The switch to a new business idea is
+day of this review. `discovery/outreach-log.md` had not changed since 2026-09-28 until the day of this
+review; the Oct 4 request to update it did not produce a change to the file. The switch to a new business idea is
 not recorded in the plan. `decisions/003` records the PengPal pilot cities, but no decision record
 covers the switch itself.
 
@@ -78,8 +80,10 @@ The plan's core items are met, per the notes file:
   from the 10 tests; the notes file has 10 students in total.
 - **Score-visibility question asked of every student:** not asked directly. The 15 questions
   cover study challenges and the prototype. S03 raised score progress unprompted.
-- **One notes file per session in `discovery/`:** no. All 11 sessions are in one Word file.
-- **Outreach log updated as contacts happen:** no entries this sprint.
+- **One notes file per session in `discovery/`:** yes as of 2026-10-12, split from the single Word
+  file on the day of this review.
+- **Outreach log updated as contacts happen:** no. All 11 sessions were added on 2026-10-12, after
+  the fact, using the session dates. The 5 PengPal interviews are noted there but not detailed.
 
 The team also switched to a different business idea and did 5 brief interviews for it, outside the
 repo. The plan file was not updated for this. `decisions/003` covers PengPal's pilot cities, not the

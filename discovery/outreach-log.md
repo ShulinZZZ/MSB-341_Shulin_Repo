@@ -31,3 +31,38 @@ Target: talk to 3. **Result: 1 talked to (met twice), 1 meeting scheduled, 1 rea
 - P1 will introduce 2-3 more pre-med students who have taken or are prepping for the MCAT.
 - P1 suggested going through pre-med professors to reach students. Idea: announce a short
   survey in a pre-med class. The pre-health advisor may be the way in.
+
+---
+
+# Outreach Log (Sprint 2)
+
+Logged 2026-10-12 from the session notes, not on the day of each contact. Dates are the session
+dates recorded in [Gapmap MCAT Prep Web App.docx](interviews/Gapmap%20MCAT%20Prep%20Web%20App.docx).
+
+## Gapmap: pre-med students
+
+Target: 10 prototype tests. **Result: 10 done (S01–S10, Oct 5–9).**
+
+| # | Who (anonymized) | Channel | Date | Status |
+|---|------------------|---------|------|--------|
+| 1 | S01, pre-med student (sophomore) | Not recorded | 2026-10-05 | Interviewed + tested prototype → [002](interviews/002-s01-premed-sophomore.md) |
+| 2 | S02, pre-med student (freshman) | Not recorded | 2026-10-05 | Interviewed + tested prototype → [003](interviews/003-s02-premed-freshman.md) |
+| 3 | S03, pre-med student (senior) | Not recorded | 2026-10-06 | Interviewed + tested prototype → [004](interviews/004-s03-premed-senior.md) |
+| 4 | S04, pre-med student (junior) | Not recorded | 2026-10-07 | Interviewed + tested prototype → [005](interviews/005-s04-premed-junior.md) |
+| 5 | S05, pre-med student (junior) | Not recorded | 2026-10-07 | Interviewed + tested prototype → [006](interviews/006-s05-premed-junior.md) |
+| 6 | S06, pre-med student (freshman) | Not recorded | 2026-10-08 | Interviewed + tested prototype → [007](interviews/007-s06-premed-freshman.md) |
+| 7 | S07, pre-med student (sophomore) | Not recorded | 2026-10-08 | Interviewed + tested prototype → [008](interviews/008-s07-premed-sophomore.md) |
+| 8 | S08, pre-med student (sophomore) | Not recorded | 2026-10-08 | Interviewed + tested prototype → [009](interviews/009-s08-premed-sophomore.md) |
+| 9 | S09, pre-med student (freshman) | Not recorded | 2026-10-09 | Interviewed + tested prototype → [010](interviews/010-s09-premed-freshman.md) |
+| 10 | S10, pre-med student (junior) | Not recorded | 2026-10-09 | Interviewed + tested prototype → [011](interviews/011-s10-premed-junior.md) |
+
+## Gapmap: advisors
+
+| # | Who (role only) | Date | Status |
+|---|-----------------|------|--------|
+| 1 | A01, BYU pre-med academic advisor (6 years) | 2026-10-09 | Interviewed, reviewed prototype → [012](interviews/012-a01-premed-advisor.md) |
+
+## PengPal: students
+
+The team ran brief interviews with 5 students about the PengPal idea. Dates, channels and notes
+were not logged in this repo.

@@ -25,6 +25,19 @@ Fill this in during Sprint 1 and keep it current. Every sprint is read against i
 If your situation changes, revise this and note what changed. That is normal; a silent
 mismatch between this file and your work is not.
 
+## Where the work lives
+
+- **Repos:** ShulinZZZ/MSB-341_Shulin_Repo, not yet shared with sdmurff
+- **Live:**
+  - MCAT Prep Tracker: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
+  - PengPal clickable prototype: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
+  - Gapmap with Knowledge Tree (prototype used in Sprint 2 tests): https://claude.ai/artifact/42hitm4hF1kYmTd2xPHfnx
+  - To-do app (side project): https://msb-341shulinrepo-todo.vercel.app
+- **Docs:**
+  - Sprint 2 interview and test notes: `discovery/interviews/` (002–012, plus the Word notes and summaries)
+  - PengPal pitch deck: `discovery/PengPal/PengPal-Big-Idea-Pitch-Guided-Travel-Final.pptx`
+  - PengPal 90-second pitch video: `discovery/PengPal/PengPal Pitch Video.mp4`
+
 ## What is in this repo
 
 | Folder | What lives here |
