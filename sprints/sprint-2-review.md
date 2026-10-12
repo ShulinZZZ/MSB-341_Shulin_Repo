@@ -3,8 +3,9 @@
 **Window:** 2026-10-03 (plan committed 18:56 MDT) to 2026-10-12
 **Sessions reviewed:** 3 across 1 project (Claude Code 3, Codex 0; 3 sessions excluded at your request)
 **Not visible to this review:** Conversations with Claude on the website. The team switched to a
-different business idea, built a pitch deck for it, ran brief interviews with 5 students, and made
-a 90-second video introducing the new idea. None of that work is in this repo.
+different business idea (PengPal), built a pitch deck for it, ran brief interviews with 5 students,
+and made a 90-second video introducing the new idea. The deck was added to the repo on 2026-10-12;
+the 5 interviews and the video are not in the repo.
 
 ## Where the work lives
 
@@ -13,8 +14,10 @@ a 90-second video introducing the new idea. None of that work is in this repo.
   (serves GitHub Pages); collaborator access to sdmurff was not checked from here.
 - **Live prototype:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/ — unchanged
   this sprint.
-- **New business idea:** pitch deck, interview notes, and the 90-second video live outside this
-  repo (Claude web conversation and team files).
+- **PengPal (new idea), added 2026-10-12:** pitch deck in `discovery/PengPal/`, a clickable
+  prototype in `product/pengpal/` built to `specs/004-pengpal-trip-prototype.md` (status: Building),
+  and `decisions/003-pengpal-pilot-cities.md` (Chongqing + Shanghai). The 5 interviews and the
+  video live outside the repo.
 - **Gapmap prototype** (used in the test sessions): https://claude.ai/artifact/42hitm4hF1kYmTd2xPHfnx
   — a Claude artifact, "Gapmap with Knowledge Tree", copied from a Gapmap artifact owned by
   someone in another organization. It is not the prototype at the live URL above.
@@ -22,7 +25,7 @@ a 90-second video introducing the new idea. None of that work is in this repo.
   (added 2026-10-12). It has 10 pre-med students (S01–S10, Oct 5–9, 20–30 min each; 3 freshmen,
   3 sophomores, 3 juniors, 1 senior) and 1 advisor (A01, Oct 9), each answering 10–15 questions.
   Answers are recorded per participant. The Key Findings section still holds template text.
-- **Three Word summaries, uncommitted, in the repo root (saved 2026-10-12):**
+- **Three Word summaries in the repo root (saved 2026-10-12):**
   - *MCAT Prep Project Progress Report* (dated Oct 6): MCAT background research, a review of the
     Gapmap prototype, the added Knowledge Tree (4 branches, 16 twigs, 48 leaves), and an r/Mcat
     burnout thread.
@@ -47,7 +50,8 @@ the only prompt asked what to work on next, and nothing was committed after Oct 
 and tests ran Oct 5–9 outside these sessions. Their notes reached the repo only on Oct 12, the
 day of this review. `discovery/outreach-log.md` has not changed since 2026-09-28; the Oct 4
 request to update it did not produce a change to the file. The switch to a new business idea is
-not recorded in the plan or in `decisions/`.
+not recorded in the plan. `decisions/003` records the PengPal pilot cities, but no decision record
+covers the switch itself.
 
 ## What took the most time
 
@@ -78,7 +82,8 @@ The plan's core items are met, per the notes file:
 - **Outreach log updated as contacts happen:** no entries this sprint.
 
 The team also switched to a different business idea and did 5 brief interviews for it, outside the
-repo. The plan file was not updated for this, and `decisions/` has no record of it.
+repo. The plan file was not updated for this. `decisions/003` covers PengPal's pilot cities, not the
+switch itself.
 
 ---
 
