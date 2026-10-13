@@ -80,7 +80,11 @@ Yes, if it could adjust to my schedule instead of expecting me to follow the sam
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+Not consistently. Some weeks I study a lot but don't have time to take a practice test, so I can't tell whether I'm improving.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

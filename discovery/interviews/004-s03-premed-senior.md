@@ -80,7 +80,11 @@ Maybe. I would use it if it provided more accurate recommendations than the stud
 
 ## Score-visibility question
 
-Not asked directly. The student brought up score progress on their own in Q2 and Q10.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+Sometimes. I can see my total practice score, but it's harder to tell which specific study activities are helping me improve.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

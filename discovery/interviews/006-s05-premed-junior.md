@@ -80,7 +80,11 @@ Yes, because seeing my knowledge visually would motivate me to keep reviewing.
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+A little. I can see whether I'm getting more questions correct, but I don't know whether that means my actual MCAT score will improve.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

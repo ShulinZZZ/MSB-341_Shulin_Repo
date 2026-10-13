@@ -80,7 +80,11 @@ I would probably use it in my sophomore or junior year when I start studying mor
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+No. I haven't taken any MCAT practice exams, so I don't have a score to compare.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

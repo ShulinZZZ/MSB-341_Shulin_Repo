@@ -80,7 +80,11 @@ Yes, if it could replace my spreadsheet and automatically track my progress.
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+Somewhat. I record my practice scores, but I have to compare them manually. It would be helpful if Gapmap showed which study activities were associated with score improvements.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

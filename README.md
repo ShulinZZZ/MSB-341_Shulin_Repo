@@ -27,7 +27,7 @@ mismatch between this file and your work is not.
 
 ## Where the work lives
 
-- **Repos:** ShulinZZZ/MSB-341_Shulin_Repo, not yet shared with sdmurff
+- **Repos:** ShulinZZZ/MSB-341_Shulin_Repo, public, shared with sdmurff and the TA
 - **Live:**
   - MCAT Prep Tracker: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
   - PengPal clickable prototype: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/

@@ -80,7 +80,11 @@ Yes, because I need something that helps me stay consistent.
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+No. I don't take practice tests regularly enough to know whether my studying is improving my score.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

@@ -9,9 +9,10 @@ the 5 interviews and the video are not in the repo.
 
 ## Where the work lives
 
-- **This repo** (`ShulinZZZ/MSB-341_Shulin_Repo`): 3 commits in the window, all on 2026-10-03
-  — "Sprint 2 plan", "Update CLAUDE.md for Sprint 2", "Refresh course skills". Public repo
-  (serves GitHub Pages); collaborator access to sdmurff was not checked from here.
+- **This repo** (`ShulinZZZ/MSB-341_Shulin_Repo`): public, shared with sdmurff and the TA (per you).
+  Commits in the window: 3 on 2026-10-03 ("Sprint 2 plan", "Update CLAUDE.md for Sprint 2",
+  "Refresh course skills"), then the rest on 2026-10-12 (this review, the interview notes, the
+  PengPal work, the README "Where the work lives" section, and a plan clarification).
 - **Live prototype:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/ — unchanged
   this sprint.
 - **PengPal (new idea), added 2026-10-12:** pitch deck in `discovery/PengPal/`, a clickable
@@ -24,9 +25,11 @@ the 5 interviews and the video are not in the repo.
 - **Interview and test notes:** `discovery/interviews/Gapmap MCAT Prep Web App.docx`
   (added 2026-10-12). It has 10 pre-med students (S01–S10, Oct 5–9, 20–30 min each; 3 freshmen,
   3 sophomores, 3 juniors, 1 senior) and 1 advisor (A01, Oct 9), each answering 10–15 questions.
-  Answers are recorded per participant. The Key Findings section still holds template text. On
-  2026-10-12 the notes were also split into one Markdown file per session
-  (`discovery/interviews/002`–`012`).
+  Answers are recorded per participant. The Key Findings section still holds template text.
+- **Per-session notes:** `discovery/interviews/002`–`012`, one file per session. Per you, these
+  were kept as per-session Google Docs during the sprint and moved into the repo on 2026-10-12;
+  Professor Murff said in class that day that work kept elsewhere can be moved into the repo when
+  the wrap-up is submitted.
 - **Three Word summaries in `discovery/interviews/` (saved 2026-10-12):**
   - *MCAT Prep Project Progress Report* (dated Oct 6): MCAT background research, a review of the
     Gapmap prototype, the added Knowledge Tree (4 branches, 16 twigs, 48 leaves), and an r/Mcat
@@ -72,16 +75,18 @@ problem; none of it was building the product.
 
 **Goal was:** Finish the interviews and test the prototype with 10 pre-meds.
 
-The plan's core items are met, per the notes file:
-- **10 pre-meds tested the prototype:** yes, S01–S10, Oct 5–9. The prototype tested was the Gapmap
-  artifact, not the app at the live URL.
-- **Advisor meeting:** yes, A01, Oct 9.
-- **The 2 scheduled student interviews:** not separately identified. The plan counted them apart
-  from the 10 tests; the notes file has 10 students in total.
-- **Score-visibility question asked of every student:** not asked directly. The 15 questions
-  cover study challenges and the prototype. S03 raised score progress unprompted.
-- **One notes file per session in `discovery/`:** yes as of 2026-10-12, split from the single Word
-  file on the day of this review.
+The plan was clarified on Oct 12 (see its Changes line): "the live prototype" became "a working
+prototype", and the 2 student interviews are no longer counted separately from the 10 tests.
+Against the plan as clarified:
+- **Student interviews and advisor meeting, with notes:** met. 10 students (S01–S10) and the
+  advisor (A01, Oct 9).
+- **10 pre-meds tested a working prototype:** met. S01–S10, Oct 5–9, on the Gapmap artifact.
+- **One notes file per session in `discovery/`:** met. Kept in Google Docs during the sprint and
+  moved into the repo on Oct 12, per you.
+- **Score-visibility question asked of every student:** met. Asked as Q16 in all 10 sessions; the
+  answers were left out of the original written notes and added on Oct 12 from the interview
+  recording transcripts. 3 of 10 said they could partly tell (S03, S05, S10); the other 7 could
+  not, including 3 who have no practice scores yet (S02, S06, S09).
 - **Outreach log updated as contacts happen:** no. All 11 sessions were added on 2026-10-12, after
   the fact, using the session dates. The 5 PengPal interviews are noted there but not detailed.
 

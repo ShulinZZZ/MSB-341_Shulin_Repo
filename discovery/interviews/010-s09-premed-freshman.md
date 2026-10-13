@@ -80,7 +80,11 @@ I would use it later, especially when I begin studying seriously for the MCAT.
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+No. I haven't taken practice tests, so I don't have any scores to track.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

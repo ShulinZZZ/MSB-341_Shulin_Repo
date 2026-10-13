@@ -80,7 +80,11 @@ Yes, because I need help organizing my studying and remembering what I've alread
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+Not really. I haven't taken enough practice tests to see a pattern. I mostly judge progress by whether I can remember the material better.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 

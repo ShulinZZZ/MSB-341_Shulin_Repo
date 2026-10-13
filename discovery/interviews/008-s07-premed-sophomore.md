@@ -80,7 +80,11 @@ Yes, especially if the main features were free to use.
 
 ## Score-visibility question
 
-Not asked directly; the script did not include it.
+**Q16. Can you tell whether your studying is moving your practice scores?**
+
+Not really. I do practice questions occasionally, but I don't have a consistent way to compare my results over time.
+
+*Asked in the session but left out of the original written notes. Added 2026-10-12 from the interview recording transcript.*
 
 ## What this changes
 
