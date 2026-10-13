@@ -101,9 +101,7 @@ switch itself.
 
 *The builder's own answers, recorded word for word.*
 
-**Did you hit the goal?** yes
-
-I have conducted the advisor interview and 10 prototype tests and summarized the results into two docs that I just downloaded to the MSB folder. I have also updated the prototype which was the one I used for interviews.
+**Did you hit the goal?** Yes, I have not only hit the goal but have a more clear direction for my next sprint based on what I have done in this sprint. During Sprint 2, I have conducted the advisor interview and 10 prototype tests and summarized the results into two docs that I just downloaded to the MSB folder. I have also updated the prototype which was the one I used for interviews. I have finished all five goals listed on the sprint 2 plan.
 
 **What did the report show you?** What surprised me most was that different students could interpret the same Gapmap features very differently. For example, I designed the knowledge tree to motivate students by showing which concepts they need to review, but some students might feel discouraged when they see too many red leaves, especially freshmen who haven't taken all the prerequisite courses yet. I also hadn't considered that students might mistake marking a concept as "reviewed" for actually mastering it. Another unexpected finding was that students close to their MCAT test date may not trust the projected score because it increases by about 1.15 points every week, even if they haven't completed their study plan. I originally thought the score chart would motivate students, but it could actually create unrealistic expectations. Finally, I realized that students who already use spreadsheets to organize their studying might find Gapmap less useful if they cannot edit their weekly schedules or mark tasks as completed. These findings showed me that features I considered helpful could actually cause confusion or frustration depending on a student's experience and preparation stage.
 
