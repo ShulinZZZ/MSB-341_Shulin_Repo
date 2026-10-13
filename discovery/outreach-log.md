@@ -36,8 +36,8 @@ Target: talk to 3. **Result: 1 talked to (met twice), 1 meeting scheduled, 1 rea
 
 # Outreach Log (Sprint 2)
 
-Logged 2026-10-12 from the session notes, not on the day of each contact. Dates are the session
-dates recorded in [Gapmap MCAT Prep Web App.docx](interviews/Gapmap%20MCAT%20Prep%20Web%20App.docx).
+Kept in Google Docs during the sprint and moved into the repo on 2026-10-12, as allowed for
+work kept elsewhere. Dates are the session dates recorded in [Gapmap MCAT Prep Web App.docx](interviews/Gapmap%20MCAT%20Prep%20Web%20App.docx).
 
 ## Gapmap: pre-med students
 

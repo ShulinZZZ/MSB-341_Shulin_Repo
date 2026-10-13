@@ -87,8 +87,9 @@ Against the plan as clarified:
   answers were left out of the original written notes and added on Oct 12 from the interview
   recording transcripts. 3 of 10 said they could partly tell (S03, S05, S10); the other 7 could
   not, including 3 who have no practice scores yet (S02, S06, S09).
-- **Outreach log updated as contacts happen:** no. All 11 sessions were added on 2026-10-12, after
-  the fact, using the session dates. The 5 PengPal interviews are noted there but not detailed.
+- **Outreach log updated as contacts happen:** met, per you. Kept in Google Docs during the
+  sprint and moved into `discovery/outreach-log.md` on Oct 12. The 5 PengPal interviews are noted
+  there but not detailed.
 
 The team also switched to a different business idea and did 5 brief interviews for it, outside the
 repo. The plan file was not updated for this. `decisions/003` covers PengPal's pilot cities, not the
