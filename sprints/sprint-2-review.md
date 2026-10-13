@@ -2,10 +2,10 @@
 
 **Window:** 2026-10-03 (plan committed 18:56 MDT) to 2026-10-12
 **Sessions reviewed:** 3 across 1 project (Claude Code 3, Codex 0; 3 sessions excluded at your request)
-**Not visible to this review:** Conversations with Claude on the website. The team switched to a
-different business idea (PengPal), built a pitch deck for it, ran brief interviews with 5 students,
-and made a 90-second video introducing the new idea. The deck was added to the repo on 2026-10-12;
-the 5 interviews and the video are not in the repo.
+**Not visible to this review:** Conversations with Claude on the website, and the Google Docs where
+the interview notes and outreach log were kept during the sprint (moved into the repo on
+2026-10-12). The team also ran brief interviews with 5 students about a new idea (PengPal); their
+notes are not in the repo.
 
 ## Where the work lives
 
@@ -13,12 +13,13 @@ the 5 interviews and the video are not in the repo.
   Commits in the window: 3 on 2026-10-03 ("Sprint 2 plan", "Update CLAUDE.md for Sprint 2",
   "Refresh course skills"), then the rest on 2026-10-12 (this review, the interview notes, the
   PengPal work, the README "Where the work lives" section, and a plan clarification).
-- **Live prototype:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/ — unchanged
-  this sprint.
-- **PengPal (new idea), added 2026-10-12:** pitch deck in `discovery/PengPal/`, a clickable
-  prototype in `product/pengpal/` built to `specs/004-pengpal-trip-prototype.md` (status: Building),
-  and `decisions/003-pengpal-pilot-cities.md` (Chongqing + Shanghai). The 5 interviews and the
-  video live outside the repo.
+- **Live:** MCAT Prep Tracker at https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
+  (unchanged this sprint) and the PengPal prototype at
+  https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
+- **PengPal (new idea):** pitch deck and 90-second pitch video (file dated Oct 8) in
+  `discovery/PengPal/`, a clickable trip prototype in `product/pengpal/` built to
+  `specs/004-pengpal-trip-prototype.md`, and `decisions/003-pengpal-pilot-cities.md` (Chongqing +
+  Shanghai). All added to the repo on 2026-10-12.
 - **Gapmap prototype** (used in the test sessions): https://claude.ai/artifact/42hitm4hF1kYmTd2xPHfnx
   — a Claude artifact, "Gapmap with Knowledge Tree", copied from a Gapmap artifact owned by
   someone in another organization. It is not the prototype at the live URL above.
@@ -44,32 +45,44 @@ the 5 interviews and the video are not in the repo.
 
 ## When you worked
 
-Repo-side: 3 of 10 days active. All 3 commits and 14 of 18 prompts were on the first evening
-(Oct 3–4, UTC Oct 4), one short session on Oct 5, then nothing until Oct 12 for this review.
-Front-loaded in the repo; the rest of the sprint's work happened off-repo per your account.
+Active on about 8 of the 10 days in the window:
+- **Oct 3 and Oct 5:** sprint plan and CLAUDE.md update (3 commits on Oct 3), then planning in
+  Claude Code on Oct 5.
+- **Oct 5–9:** 11 interview and prototype-test sessions on 5 consecutive days (2 on Oct 5, 1 on
+  Oct 6, 2 on Oct 7, 3 on Oct 8, 3 on Oct 9), per the session notes. Progress report dated Oct 6.
+- **Oct 8:** PengPal pitch video (file date).
+- **Oct 10:** usability testing summary.
+- **Oct 12:** PengPal prototype, spec and decision record; this review; work kept in Google Docs
+  moved into the repo.
+
+The interviews and tests were spread across the middle of the sprint. The repo itself was not
+updated between Oct 3 and Oct 12, because notes were kept in Google Docs until the wrap-up.
 
 ## Where you got stuck
 
-The sessions show no circling or retries. The visible break is between plan and repo: on Oct 5
-the only prompt asked what to work on next, and nothing was committed after Oct 3. The interviews
-and tests ran Oct 5–9 outside these sessions. Their notes reached the repo only on Oct 12, the
-day of this review. `discovery/outreach-log.md` had not changed since 2026-09-28 until the day of this
-review; the Oct 4 request to update it did not produce a change to the file. The switch to a new business idea is
-not recorded in the plan. `decisions/003` records the PengPal pilot cities, but no decision record
-covers the switch itself.
+- **Whether Gapmap was worth continuing.** The sessions showed students needed more than a
+  personalized plan: accurate assessments, flexible scheduling, completion tracking, and score
+  estimates based on real performance (S03, S04, S10 and the advisor all raised versions of this).
+  It ended with the team exploring PengPal, an idea that can be tested with hand-arranged trips
+  before building much software (your retro, Q3).
+- **Deciding what to work on after the plan.** On Oct 5 the only Claude Code prompt asked what to
+  work on next. The interviews started the same day.
+- **The PengPal deck's pilot cities.** The deck said Chongqing + Shanghai on the slide and
+  Chongqing + Chengdu in the speaker notes. It ended with `decisions/003` choosing Chongqing +
+  Shanghai.
 
 ## What took the most time
 
-In the repo: the Oct 3–4 session (writing and committing the sprint plan, updating CLAUDE.md,
-getting the plan link for Canvas), about an hour. By your account and the notes file, most of the sprint's time went to off-repo work: 11 interview and
-test sessions totaling about 4.5 hours (Oct 5–9), the written summaries, the team's pitch deck, 5
-interviews for the new idea, and the video.
+The 11 interview and test sessions, about 4.5 hours of sessions (Oct 5–9), plus the notes and
+written summaries. Then the PengPal work: the pitch deck, 5 interviews, the video, and the
+clickable prototype. The Claude Code sessions in this repo were short: about an hour on Oct 3–4
+for the plan, then the Oct 12 wrap-up.
 
 ## Axis
 
-**Discovery.** The sprint's output was 10 student sessions with the prototype, an advisor interview,
-and a separate pitch with 5 interviews for a new idea. All of it was talking to users and framing the
-problem; none of it was building the product.
+**Discovery.** Most of the time went to 10 student sessions with the prototype, an advisor
+interview, and 5 interviews and a pitch for a new idea: talking to users and framing the problem.
+The PengPal clickable prototype was a smaller share of the sprint.
 
 ## Against your plan
 
@@ -91,9 +104,9 @@ Against the plan as clarified:
   sprint and moved into `discovery/outreach-log.md` on Oct 12. The 5 PengPal interviews are noted
   there but not detailed.
 
-The team also switched to a different business idea and did 5 brief interviews for it, outside the
-repo. The plan file was not updated for this. `decisions/003` covers PengPal's pilot cities, not the
-switch itself.
+Beyond the plan: the team began exploring a second idea, PengPal, and built a pitch deck, a
+90-second video, a clickable prototype, and ran 5 brief interviews for it. The plan's goal was
+left as Gapmap, since that work was finished; the switch is explained in your retro (Q3).
 
 ---
 
