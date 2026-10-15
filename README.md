@@ -1,9 +1,12 @@
-# MCAT Prep Tracker
+# PengPal
 
-> A study tracker and multi-format lesson tool that helps pre-med students see what's
-> actually moving their MCAT score.
+> Travel China like you have a friend there: PengPal connects first-time foreign travelers in
+> China with young, English-speaking Chinese locals who help with transportation, payments,
+> food, and local experiences.
 
-**Live:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
+**Live prototype:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
+**Previous project (Sprints 1–2):** MCAT Prep Tracker / Gapmap at
+https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
 **Side project:** To-do list app with Supabase backend (spec 003) at
 https://msb-341shulinrepo-todo.vercel.app
 **Built by:** Shulin Zhang, MSB 341 Product Management, BYU
@@ -12,15 +15,20 @@ https://msb-341shulinrepo-todo.vercel.app
 
 Fill this in during Sprint 1 and keep it current. Every sprint is read against it.
 
-- **What I am building:** A web app where pre-med students log MCAT study sessions and
-  practice scores, and view the same lesson content in three formats (visual, video-style,
-  text) to find what actually helps them learn.
-- **Who it is for:** Pre-med students actively studying for the MCAT.
+- **What I am building:** PengPal, a service that connects first-time foreign travelers in
+  China with young, English-speaking Chinese locals who help them navigate transportation,
+  payments, food, and authentic local experiences. Pilot cities: Chongqing + Shanghai
+  (`decisions/003`). Right now it is a clickable prototype (`specs/004`); the first trips are
+  meant to be hand-matched before building real software.
+- **Who it is for:** First-time foreign travelers to China, and the English-speaking local
+  hosts who guide them.
 - **My role:** Product lead, PM, and builder on a team.
-- **My user:** Pre-med students prepping for the MCAT. Starting with roommates and friends
-  who are pre-med — some currently studying for the exam, one who scored very high, others
-  taking coursework that overlaps with tested material — and reaching more through BYU's
-  Pre-Health Advising Center.
+- **My user:** People planning a first-time trip to China in the next year.
+
+**What changed (Oct 14, Sprint 3):** Switched from the MCAT Prep Tracker / Gapmap to PengPal.
+The Sprint 2 tests showed Gapmap would need accurate assessments, flexible scheduling, and
+progress tracking to be useful, and would compete with established MCAT platforms. PengPal can
+be validated faster with real, hand-arranged trips (see `sprints/sprint-2-review.md`, retro).
 
 If your situation changes, revise this and note what changed. That is normal; a silent
 mismatch between this file and your work is not.
@@ -59,9 +67,10 @@ whether a change to a prompt helped or hurt.
 
 ## Running it
 
-Open the live site: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
+Open the PengPal prototype: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
+(the MCAT tracker is still at `/product/mcat/`).
 
-No build step or install. To run locally, serve the repo root and open `/product/mcat/`:
+No build step or install. To run locally, serve the repo root and open `/product/pengpal/`:
 
 ```bash
 npx serve .        # or: python -m http.server

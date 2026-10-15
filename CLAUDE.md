@@ -5,24 +5,26 @@ a brand new session act like a colleague who already knows what you are working 
 
 ## What I am building
 
-- **What it is:** A web app for pre-med students to log MCAT study sessions and practice
-  scores, and view the same lesson content in three formats (visual, video-style, text) to
-  find what actually helps them learn.
-- **Who it is for:** Pre-med students actively prepping for the MCAT (see
-  discovery/personas.md — not yet filled in with real interview data).
+- **What it is:** PengPal, a service that connects first-time foreign travelers in China with
+  young, English-speaking Chinese locals who help them navigate transportation, payments,
+  food, and authentic local experiences. Pilot cities: Chongqing + Shanghai (decisions/003).
+  Currently a clickable prototype (specs/004); first trips are to be hand-matched.
+- **Who it is for:** People planning a first-time trip to China in the next year.
 - **My role:** Product lead, PM, and builder on a team.
-- **Why they would use it:** Assumed problem, not yet validated by interviews — existing
-  tools (UWorld, AAMC, Kaplan, Blueprint, Anki, Khan Academy) each cover one slice, and
-  there's no single place that shows whether studying is actually moving the score or which
-  topics are still weak.
+- **Why they would use it:** Assumed problem, not yet validated with travelers — it comes from
+  helping BYU friends travel in China, where they struggled with Chinese apps, QR-code
+  payments, and transportation because Google Maps, card payments, and Uber don't work well
+  there.
+- **Previous project (Sprints 1–2):** MCAT Prep Tracker / Gapmap at product/mcat/. Dropped
+  after Sprint 2 tests showed it needed far more than a personalized plan to be useful.
 
 ## Current state
 
-- **This sprint's goal:** Finish the interviews and test the prototype with 10 pre-meds, to
-  get real user feedback before building more (see sprints/sprint-2-plan.md).
-- **Live at:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
-- **Biggest open risk:** Lacking the technical skill to build a real personalized/adaptive
-  studying feature, and the cost of obtaining accurate data to train it on.
+- **This sprint's goal:** Test the PengPal prototype with 10 potential travelers, to see if
+  travelers would actually pay before building more (see sprints/sprint-3-plan.md).
+- **Live at:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
+- **Biggest open risk:** Whether travelers will actually pay for the service; after that,
+  host verification, traveler safety, and local regulations.
 
 ## How this repo works
 
@@ -39,7 +41,7 @@ a brand new session act like a colleague who already knows what you are working 
 ## Stack and conventions
 
 - **Stack:** Vanilla HTML/CSS/JS, no framework, no backend. Data persists in the browser via
-  localStorage (per specs/001 and specs/002).
+  localStorage (per specs/001, 002, and 004).
 - **Deploy:** GitHub Pages, serving straight from `main` (root). A push to `main` goes live
   within a minute or two — no build step.
 - **Testing and style:** [fill in as they emerge]
