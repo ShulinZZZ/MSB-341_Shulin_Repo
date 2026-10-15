@@ -7,3 +7,6 @@ __pycache__/
 dist/
 build/
 .venv/
+
+# Private course feedback (grades), keep out of the public repo
+Feedback/
