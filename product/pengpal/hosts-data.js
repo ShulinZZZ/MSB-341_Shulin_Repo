@@ -1,6 +1,13 @@
 // Sample data for the prototype. These are not real people, reviews or prices.
 
-const PRICE = { half: 45, full: 80 }; // USD per group (up to 4), placeholder to test reactions
+const PRICE = { visit: 24, half: 40, full: 80 }; // USD per group (up to 4), placeholder to test reactions
+
+// Booking lengths, shortest first. `time` is the sample meeting window on trip day.
+const DURATIONS = {
+  visit: { label: "Visit", short: "visit", hours: 2, time: "10:00 – 12:00" },
+  half: { label: "Half day", short: "half day", hours: 4, time: "9:00 – 13:00" },
+  full: { label: "Full day", short: "full day", hours: 8, time: "9:00 – 17:00" },
+};
 const SERVICE_FEE_RATE = 0.15;        // PengPal fee on top of the host rate, placeholder
 
 const CITIES = {
@@ -48,6 +55,9 @@ const COUNTRIES = [
 
 const LANGUAGES = ["English", "Spanish", "French", "German", "Portuguese", "Korean"];
 
+// Host photos are free Pexels stock photos (hosts/<id>.jpg), cropped to 256px. The people
+// pictured are models, not PengPal hosts. Pexels photo IDs: lin 1645820, qin 8102229,
+// hao 5384445, yue 17503453, mei 18999175, jun 26524785, xin 4078393, rui 7651802.
 const HOSTS = [
   // ---- Chongqing ----
   {

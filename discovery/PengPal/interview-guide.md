@@ -57,9 +57,9 @@ Give one task at a time. Note what they say and where they hesitate.
 |---|---|---|---|
 | 1 | "Set it up for your trip." | Welcome / onboarding | Do they get the pitch from the first screen? |
 | 2 | "Pick someone you'd want to spend a day with." | Host list → profile | What they look at to decide: badges, reviews, languages? Do they trust the hosts? |
-| — | **Before they open a profile**, ask: "What would you expect a half day with one of these people to cost?" | Host list | Their number *before* they see the $45 / $80 price |
+| — | **Before they open a profile**, ask: "What would you expect a half day with one of these people to cost?" | Host list | Their number *before* they see the $24 / $40 / $80 prices |
 | 3 | "Set up a call with them before you commit." | Video intro | Does the time-zone display make sense? Would they actually do the call? |
-| 4 | "Book a day with them." | Book and pay | Reaction to $45 half day / $80 full day + 15% fee as its own line |
+| 4 | "Book a day with them." | Book and pay | Which length they pick (2-hr visit $24, half day $40, full day $80) and their reaction to the 15% fee as its own line |
 | 5 | "Get ready for the trip." | Prep checklist | Which items are new to them? Is this useful on its own? |
 | 6 | "It's the day of the trip. Find where to meet, and what you'd do if something went wrong." | Day of trip | Do they find the safety button? Does it make them feel safer? |
 | 7 | "Finish the trip." | Review | Any friction. Skip if short on time. |
@@ -76,9 +76,9 @@ After the walkthrough:
 > **"Would you pay for this, and how much?"**
 
 Write their answer word for word. Then:
-1. (If yes) "For the half day or full day? Just you, or split with your group?"
-2. "The prototype showed $45 for a half day and $80 for a full day, plus a 15% fee. Is that
-   too cheap, about right, getting expensive, or too expensive?"
+1. (If yes) "For a 2-hour visit, a half day or a full day? Just you, or split with your group?"
+2. "The prototype showed $24 for a 2-hour visit, $40 for a half day and $80 for a full day,
+   plus a 15% fee. Is that too cheap, about right, getting expensive, or too expensive?"
 3. "At what price would you stop considering it?"
 4. "What would you do instead if this didn't exist?"
 

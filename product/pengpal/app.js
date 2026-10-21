@@ -92,7 +92,7 @@ function stars(n) {
 }
 
 function avatar(h, size = "") {
-  return `<span class="avatar ${size}" style="--c:${h.color}" aria-hidden="true">${esc(h.name[0])}</span>`;
+  return `<span class="avatar ${size}" style="--c:${h.color}" aria-hidden="true"><img src="hosts/${h.id}.jpg" alt="" onerror="this.replaceWith('${h.name[0]}')"></span>`;
 }
 
 function showToast(msg) {
@@ -287,8 +287,6 @@ const screens = {
   profile() {
     const h = host();
     const m = matchFor(h.id);
-    const half = priceFor("half");
-    const full = priceFor("full");
     return `
       <section>
         <div class="video" data-action="play-video" role="button" tabindex="0" aria-label="Play ${esc(h.name)}'s intro video" style="--c:${h.color}">
@@ -315,8 +313,7 @@ const screens = {
 
           <h3>Price</h3>
           <div class="price-cards">
-            <div class="price-card"><span class="price">${usd(half.rate)}</span><span>Half day · 4 hrs</span></div>
-            <div class="price-card"><span class="price">${usd(full.rate)}</span><span>Full day · 8 hrs</span></div>
+            ${Object.entries(DURATIONS).map(([id, d]) => `<div class="price-card"><span class="price">${usd(PRICE[id])}</span><span>${d.label} · ${d.hours} hrs</span></div>`).join("")}
           </div>
           <p class="fine">Per group of up to 4. Plus a ${Math.round(SERVICE_FEE_RATE * 100)}% PengPal service fee. Meals, tickets and rides are paid as you go.</p>
 
@@ -402,8 +399,7 @@ const screens = {
 
         <div class="field">How long
           <div class="seg" role="radiogroup">
-            <button class="seg-btn ${b.duration === "half" ? "selected" : ""}" data-action="duration" data-id="half" role="radio" aria-checked="${b.duration === "half"}">Half day<small>4 hrs · ${usd(PRICE.half)}</small></button>
-            <button class="seg-btn ${b.duration === "full" ? "selected" : ""}" data-action="duration" data-id="full" role="radio" aria-checked="${b.duration === "full"}">Full day<small>8 hrs · ${usd(PRICE.full)}</small></button>
+            ${Object.entries(DURATIONS).map(([id, d]) => `<button class="seg-btn ${b.duration === id ? "selected" : ""}" data-action="duration" data-id="${id}" role="radio" aria-checked="${b.duration === id}">${d.label}<small>${d.hours} hrs · ${usd(PRICE[id])}</small></button>`).join("")}
           </div>
         </div>
 
@@ -417,7 +413,7 @@ const screens = {
         </div>
 
         <div class="receipt">
-          <div class="row"><span>${esc(h.name)}'s time · ${b.duration === "half" ? "half day" : "full day"}</span><span>${usd(pr.rate)}</span></div>
+          <div class="row"><span>${esc(h.name)}'s time · ${DURATIONS[b.duration].short}</span><span>${usd(pr.rate)}</span></div>
           <div class="row"><span>PengPal service fee (${Math.round(SERVICE_FEE_RATE * 100)}%)</span><span>${usd(pr.fee)}</span></div>
           <div class="row total"><span>Total, in USD</span><span>${usd(pr.total)}</span></div>
           <p class="fine">Charged now and held by PengPal. ${esc(h.name)} is paid after your trip. Free cancellation up to 48 hours before.</p>
@@ -444,7 +440,7 @@ const screens = {
     const doneCount = items.filter((i) => state.checklist[i.id]).length;
     return `
       <section class="pad">
-        <div class="done-note">✔ Booked: ${esc(fmtDate(state.booking.date))} with ${esc(h.name)} · ${state.booking.duration === "half" ? "half day" : "full day"}</div>
+        <div class="done-note">✔ Booked: ${esc(fmtDate(state.booking.date))} with ${esc(h.name)} · ${DURATIONS[state.booking.duration].short}</div>
         <h2>Get ready for China</h2>
         <p class="hint">${esc(h.name)} added tips to each step. Stuck? We'll fix it together on day one.</p>
         <div class="meter" aria-label="${doneCount} of ${items.length} done"><span style="width:${(doneCount / items.length) * 100}%"></span></div>
@@ -468,7 +464,7 @@ const screens = {
   trip() {
     const h = host();
     const mp = city().meetingPoint;
-    const time = state.booking.duration === "half" ? "9:00 – 13:00" : "9:00 – 17:00";
+    const time = DURATIONS[state.booking.duration].time;
     return `
       <section class="pad">
         <div class="trip-banner">

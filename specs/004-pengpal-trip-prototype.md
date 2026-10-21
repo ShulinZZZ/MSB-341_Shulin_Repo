@@ -31,7 +31,7 @@ One trip, eight screens, walked in order:
    ("Matches 2 of your interests"). Each card: avatar initial, name, verified check, a
    returnee badge ("Studied in Manchester"), languages, specialties.
 3. **Host profile:** bio, intro-video placeholder (poster + play button, no real video),
-   3 sample reviews with stars, price per half day and full day.
+   3 sample reviews with stars, price per 2-hour visit, half day and full day.
 4. **Book a video intro:** free 15-min call, pick a slot from the next 3 days, shown in both
    the traveler's local time and China time.
 5. **Book and pay:** trip date, half/full day, party size. USD price breakdown: host rate +
@@ -64,8 +64,9 @@ deck does.
 
 ## Pilot cities
 
-Chongqing + Shanghai (see `decisions/003-pengpal-pilot-cities.md`). Price placeholders: $45
-half day, $80 full day per group of up to 4, plus a 15% service fee.
+Chongqing + Shanghai (see `decisions/003-pengpal-pilot-cities.md`). Price placeholders: $24
+2-hour visit, $40 half day, $80 full day per group of up to 4, plus a 15% service fee.
+(Changed 2026-10-20 from $45 half day / $80 full day, adding the cheaper visit option.)
 
 ## Definition of done
 

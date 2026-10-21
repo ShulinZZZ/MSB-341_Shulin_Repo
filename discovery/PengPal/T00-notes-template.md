@@ -13,8 +13,9 @@
 | Biggest worry (their words) | |
 | Paid for a guide/tour before? How much? | |
 | Expected price before seeing it | $ |
+| Length they'd book | visit / half day / full day |
 | "Would you pay for this, and how much?" (verbatim) | "" |
-| Reaction to $45 / $80 + 15% | too cheap / about right / getting expensive / too expensive |
+| Reaction to $24 visit / $40 half day / $80 full day + 15% | too cheap / about right / getting expensive / too expensive |
 | Walk-away price | $ |
 | Joined waitlist? City? | yes / no |
 | Referred someone? | yes / no |
