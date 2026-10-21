@@ -46,7 +46,7 @@ One trip, eight screens, walked in order:
 8. **Review:** 1-5 stars, tags ("helped with payments", "great food spots"), comment,
    "would you recommend to a friend?" (0-10, our referral signal). Thank-you screen.
 
-**Brand:** PengPal / 朋友派, P-mark logo (drawn in CSS/SVG), lantern red `#E84632` and gold
+**Brand:** PengPal / 朋派, P-mark logo (drawn in CSS/SVG), lantern red `#E84632` and gold
 accent, navy `#18345A` text, matching the deck.
 
 **All hosts, reviews and prices are clearly labeled sample data** ("Sample profile"), as the

@@ -177,7 +177,7 @@ function renderTopbar() {
   const s = state.screen;
   if (s === "welcome" || s === "done") {
     topbarEl.innerHTML = `
-      <div class="brand"><span class="pmark" aria-hidden="true">P</span><span>PengPal</span><span class="zh">朋友派</span></div>`;
+      <div class="brand"><span class="pmark" aria-hidden="true">P</span><span>PengPal</span><span class="zh">朋派</span></div>`;
     return;
   }
   const step = FLOW.indexOf(s);
