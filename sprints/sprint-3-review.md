@@ -79,14 +79,14 @@ items:
 
 ## Your retro
 
-*The builder's own answers, recorded word for word in step 7.*
+*The builder's own answers, recorded word for word in step 7, then edited for spelling and grammar at the builder's request on 2026-10-26.*
 
-**Did you hit the goal?** Yes, I hit the goals for this sprint. First, I finished the PengPal prototype to which the travelers can find a local host, schedule an instroductory video call, and book a trip.  Second, I interviewed 10 potential travelers and had them tested the prototype.  I will upload the interview summarises later.
+**Did you hit the goal?** Yes. First, I finished the PengPal prototype, where travelers can find a local host, schedule an introductory video call, and book a trip. Second, I interviewed 10 potential travelers and had them test the prototype. I will upload the interview summaries later.
 
-**What did the report show you?** It showed me that the users want some more options for places to go, some of them want to do book more than one day. Some want to the app to show that the trip they have booked and a message tab to keep conversation with the host.
+**What did the report show you?** Travelers want more options for places to go, and some want to book more than one day. Some also want the app to show the trips they've booked, and a message tab for keeping in touch with their host.
 
 **If the plan changed, why?** (skipped: the plan did not change)
 
-**Actual difficulty:** Difficult level 2. It was not too hard to go through all the interviews and update the prototype based on feedback.
+**Actual difficulty:** 2, one lower than the 3 I predicted. Running the interviews and updating the prototype based on the feedback was not too hard.
 
-**What will you change next sprint?** I think I will have a more sheduled plan for the sprint, like specific quota for the week to achieve.
+**What will you change next sprint?** I'll make a more structured sprint plan, with a specific quota to hit each week.
