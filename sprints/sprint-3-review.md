@@ -83,11 +83,11 @@ answer (`discovery/PengPal/Interviews/T01.md`–`T10.md`), and the findings writ
 
 ## Your retro
 
-*The builder's own answers, recorded word for word in step 7, then edited for spelling and grammar at the builder's request on 2026-10-26. Answer 1 was rewritten later that day at the builder's request, after the interview notes and findings were committed.*
+*The builder's own answers, recorded word for word in step 7, then edited for spelling and grammar at the builder's request on 2026-10-26. Answers 1 and 2 were rewritten later that day at the builder's request, after the interview notes and findings were committed.*
 
 **Did you hit the goal?** Yes. I finished the PengPal prototype, where travelers can find a local host, schedule an introductory video call, and book a trip. I interviewed 10 potential travelers and had them test it, with one notes file per session (T01–T10). I asked every traveler the same pay question and invited them to the waitlist: all 10 said they'd pay, and 8 joined. The findings write-up (discovery/PengPal/findings.md) concludes that $40 for a half day held up best, and that the app needs options for different traveler types.
 
-**What did the report show you?** Travelers want more options for places to go, and some want to book more than one day. Some also want the app to show the trips they've booked, and a message tab for keeping in touch with their host.
+**What did the report show you?** Two things. First, the repo didn't show my interviews. I had done all 10 sessions, but at review time none of the notes, pay answers or findings were committed, so only the prototype update counted against my plan. I wouldn't have noticed that my work wasn't visible until it was graded. Second, my work came in bursts: I was active on 7 of 14 days, with gaps on Oct 16–18, 22 and 25, and my last commit before the review was Oct 20.
 
 **If the plan changed, why?** (skipped: the plan did not change)
 
