@@ -75,6 +75,10 @@ items:
 - **Same pay question and waitlist invite, answers recorded:** no recorded answers.
 - **Findings write-up on willingness to pay and price:** not written.
 
+**Update 2026-10-26, after the retro:** the ten session notes, with each pay answer and waitlist
+answer (`discovery/PengPal/Interviews/T01.md`–`T10.md`), and the findings write-up
+(`discovery/PengPal/findings.md`) were committed after this report was written.
+
 ---
 
 ## Your retro
