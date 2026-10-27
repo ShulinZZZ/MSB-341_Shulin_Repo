@@ -83,9 +83,9 @@ answer (`discovery/PengPal/Interviews/T01.md`–`T10.md`), and the findings writ
 
 ## Your retro
 
-*The builder's own answers, recorded word for word in step 7, then edited for spelling and grammar at the builder's request on 2026-10-26.*
+*The builder's own answers, recorded word for word in step 7, then edited for spelling and grammar at the builder's request on 2026-10-26. Answer 1 was rewritten later that day at the builder's request, after the interview notes and findings were committed.*
 
-**Did you hit the goal?** Yes. First, I finished the PengPal prototype, where travelers can find a local host, schedule an introductory video call, and book a trip. Second, I interviewed 10 potential travelers and had them test the prototype. I will upload the interview summaries later.
+**Did you hit the goal?** Yes. I finished the PengPal prototype, where travelers can find a local host, schedule an introductory video call, and book a trip. I interviewed 10 potential travelers and had them test it, with one notes file per session (T01–T10). I asked every traveler the same pay question and invited them to the waitlist: all 10 said they'd pay, and 8 joined. The findings write-up (discovery/PengPal/findings.md) concludes that $40 for a half day held up best, and that the app needs options for different traveler types.
 
 **What did the report show you?** Travelers want more options for places to go, and some want to book more than one day. Some also want the app to show the trips they've booked, and a message tab for keeping in touch with their host.
 
