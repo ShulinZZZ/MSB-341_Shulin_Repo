@@ -13,6 +13,9 @@ All 10 said yes or a conditional yes to the pay question, 9 with a number. 8 of 
 someone. But the right price depends heavily on who is traveling, and the 15% fee only works if the
 all-in total is shown from the start.
 
+**The biggest gap in the prototype is that it treats every traveler the same.** Families, solo
+travelers, seniors, students and business travelers each asked for options the app doesn't have.
+
 ## The pay question
 
 | | Answer | Length | Walk-away | Waitlist |
@@ -59,17 +62,22 @@ all-in total is shown from the start.
 
 Everyone finished the full flow. Where they hesitated or asked for more:
 
-- **Paying before the call happens** (T10): they want to talk to the host first, then pay. The
-  prototype books the intro call and then goes straight to payment. T02 also wanted a clear, free
-  way to pick another host if the call goes badly.
+- **No way to say what kind of traveler you are (the biggest gap).** Onboarding asks for city,
+  country, language and interests, but not who is traveling. 6 of 10 asked for options that fit
+  their type of trip:
+  - Family: a "traveling as a family" option, and hosts who know kid-friendly places (T03, T06)
+  - Solo: choosing a female host (T07)
+  - Senior: larger text, simpler navigation and phone support (T10)
+  - Business: "business travel" as a trip type, hosts with professional experience, invoices (T08)
+  - Student: student interests, younger hosts with shared hobbies (T05)
+
+  Host profiles can't show these either: there's no family, business or student experience on them.
 - **Unclear price:** does it cover the whole group (T09, T03)? Are meals and transport extra (T09)?
   Where is the fee (T04, T05)?
 - **Safety and trust:** location sharing and emergency support (T04, T06, T07, T10), verification
   and reviews (T04, T06, T07, T10), a clear cancellation policy (T06, T07, T10).
-- **Missing options:** traveling as a family (T03, T06), a host gender preference (T07),
-  in-app messaging (T05, T09), seeing where the host would take you (T01), booking more than one
-  day (T01, T02, T03, T08).
-- **Readability:** T10 struggled with onboarding and wanted larger text and simpler navigation.
+- **Other missing features:** in-app messaging (T05, T09), seeing where the host would take you
+  (T01), booking more than one day (T01, T02, T03, T08).
 
 ## Pilot cities
 
