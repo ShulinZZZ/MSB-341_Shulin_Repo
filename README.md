@@ -42,6 +42,8 @@ mismatch between this file and your work is not.
   - Gapmap with Knowledge Tree (prototype used in Sprint 2 tests): https://claude.ai/artifact/42hitm4hF1kYmTd2xPHfnx
   - To-do app (side project): https://msb-341shulinrepo-todo.vercel.app
 - **Docs:**
+  - Sprint 3 PengPal traveler sessions: `discovery/PengPal/Interviews/` (T01–T10), findings in
+    `discovery/PengPal/findings.md`, interview guide in `discovery/PengPal/interview-guide.md`
   - Sprint 2 interview and test notes: `discovery/interviews/` (002–012, plus the Word notes and summaries)
   - PengPal pitch deck: `discovery/PengPal/PengPal-Big-Idea-Pitch-Guided-Travel-Final.pptx`
   - PengPal 90-second pitch video: `discovery/PengPal/PengPal Pitch Video.mp4`
