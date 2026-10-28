@@ -20,11 +20,16 @@ a brand new session act like a colleague who already knows what you are working 
 
 ## Current state
 
-- **This sprint's goal:** Test the PengPal prototype with 10 potential travelers, to see if
-  travelers would actually pay before building more (see sprints/sprint-3-plan.md).
+- **This sprint's goal (Sprint 4, Oct 26 – Nov 9):** Prototype v2 with traveler types and the
+  all-in price, a China legal check, 3 real Shanghai hosts, and 8 sessions asking travelers for a
+  real commitment (intro call or $10 deposit), plus target-customer work and mentor feedback
+  (see sprints/sprint-4-plan.md, which has weekly quotas).
+- **Last sprint's result:** 10 traveler sessions; all said they'd pay, 8 joined the waitlist;
+  $40 half day held up best; biggest gap is no traveler-type options
+  (see discovery/PengPal/findings.md).
 - **Live at:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
-- **Biggest open risk:** Whether travelers will actually pay for the service; after that,
-  host verification, traveler safety, and local regulations.
+- **Biggest open risk:** Whether travelers will actually pay, not just say they will; after
+  that, local regulations on paid hosts, host verification, and traveler safety.
 
 ## How this repo works
 
