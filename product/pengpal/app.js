@@ -1,18 +1,19 @@
 const STORAGE_KEY = "pengpal-demo.v1";
 
 // Screen order drives the back button and the "step N of 8" label.
-const FLOW = ["welcome", "onboard", "hosts", "profile", "intro", "book", "prep", "trip", "review", "done"];
+const FLOW = ["welcome", "onboard", "hosts", "profile", "intro", "book", "commit", "prep", "trip", "review", "done"];
 const STEP_TITLE = {
   onboard: "About your trip",
   hosts: "Your matches",
   profile: "Host profile",
   intro: "Video intro",
-  book: "Book & pay",
+  book: "Book your day",
+  commit: "Make it real",
   prep: "Before you fly",
   trip: "Trip day",
   review: "Rate your day",
 };
-const TOTAL_STEPS = 8;
+const TOTAL_STEPS = 9;
 
 const screenEl = document.getElementById("screen");
 const topbarEl = document.getElementById("topbar");
@@ -25,10 +26,12 @@ const toastEl = document.getElementById("toast");
 function defaultState() {
   return {
     screen: "welcome",
-    profile: { city: "chongqing", country: "us", language: "English", interests: [] },
+    profile: { city: "chongqing", country: "us", language: "English", interests: [], travelerType: null, preferFemale: false },
     hostId: null,
     intro: { slot: null },
-    booking: { date: null, duration: "half", party: 2, paid: false },
+    booking: { date: null, duration: "half", party: 2 },
+    // The real-commitment ask (spec 005). Nothing is charged here; the facilitator follows up.
+    commit: { choice: null, month: "", city: "", reason: "" },
     checklist: {},
     chat: [],
     chatStep: 0,
@@ -84,6 +87,15 @@ function host() {
 
 function country() {
   return COUNTRIES.find((c) => c.id === state.profile.country) || COUNTRIES[0];
+}
+
+function travelerType(id = state.profile.travelerType) {
+  return TRAVELER_TYPES.find((t) => t.id === id) || null;
+}
+
+// Seniors get larger text across the app (T10 asked for it).
+function applyTextSize() {
+  document.documentElement.classList.toggle("large-text", state.profile.travelerType === "senior");
 }
 
 function stars(n) {
@@ -146,8 +158,12 @@ function matchHosts() {
       const shared = h.interests.filter((i) => p.interests.includes(i));
       const speaksYours = p.language !== "English" && h.languages.includes(p.language);
       const livedInYours = h.studied.country === studyKey;
-      const score = shared.length * 2 + (speaksYours ? 3 : 0) + (livedInYours ? 1 : 0) + h.rating / 10;
-      return { h, shared, speaksYours, livedInYours, score };
+      const typeMatch = h.goodFor.includes(p.travelerType);
+      const femalePick = p.travelerType === "solo" && p.preferFemale && h.gender === "f";
+      // Female-host preference outranks traveler type, which outranks everything else.
+      const score = (femalePick ? 100 : 0) + (typeMatch ? 50 : 0)
+        + shared.length * 2 + (speaksYours ? 3 : 0) + (livedInYours ? 1 : 0) + h.rating / 10;
+      return { h, shared, speaksYours, livedInYours, typeMatch, score };
     })
     .sort((a, b) => b.score - a.score);
 }
@@ -157,7 +173,9 @@ function matchFor(id) {
 }
 
 function badges(m) {
-  const out = [`<span class="badge badge-gold">🎓 Studied in ${esc(m.h.studied.place)}</span>`];
+  const out = [];
+  if (m.typeMatch) out.push(`<span class="badge badge-red">${esc(travelerType().badge)}</span>`);
+  out.push(`<span class="badge badge-gold">🎓 Studied in ${esc(m.h.studied.place)}</span>`);
   if (m.livedInYours) out.push(`<span class="badge badge-navy">Lived in your country</span>`);
   if (m.speaksYours) out.push(`<span class="badge badge-navy">Speaks ${esc(state.profile.language)}</span>`);
   return out.join("");
@@ -169,6 +187,11 @@ function priceFor(duration) {
   const rate = PRICE[duration];
   const fee = Math.round(rate * SERVICE_FEE_RATE * 100) / 100;
   return { rate, fee, total: rate + fee };
+}
+
+// The line under every all-in total, so the fee and what's covered are never a surprise.
+function priceNote(duration) {
+  return `Includes ${usd(priceFor(duration).fee)} PengPal fee · whole group up to 4 · meals, tickets and rides extra`;
 }
 
 // ---- top bar ----
@@ -225,8 +248,23 @@ const screens = {
       <button class="chip ${p.interests.includes(i.id) ? "selected" : ""}" data-action="interest" data-id="${i.id}" aria-pressed="${p.interests.includes(i.id)}">
         <span aria-hidden="true">${i.icon}</span> ${esc(i.label)}
       </button>`).join("");
+    const typeChips = TRAVELER_TYPES.map((t) => `
+      <button class="chip ${p.travelerType === t.id ? "selected" : ""}" data-action="traveler-type" data-id="${t.id}" aria-pressed="${p.travelerType === t.id}">
+        <span aria-hidden="true">${t.icon}</span> ${esc(t.label)}
+      </button>`).join("");
+    const femaleToggle = p.travelerType === "solo" ? `
+        <button class="toggle ${p.preferFemale ? "on" : ""}" data-action="prefer-female" role="switch" aria-checked="${p.preferFemale}">
+          <span class="toggle-dot" aria-hidden="true"></span> I'd prefer a female host
+        </button>` : "";
+    const ready = p.travelerType && p.interests.length;
     return `
       <section class="pad">
+        <h2>Who's traveling?</h2>
+        <p class="hint">We'll show hosts who know your kind of trip first.</p>
+        <div class="chips">${typeChips}</div>
+        ${femaleToggle}
+        ${p.travelerType === "senior" ? `<p class="hint type-note">We've made the text larger for you.</p>` : ""}
+
         <h2>Where are you headed?</h2>
         <div class="city-grid">${cityCards}</div>
 
@@ -247,8 +285,8 @@ const screens = {
         <div class="chips">${chips}</div>
       </section>
       <div class="cta-bar">
-        <button class="btn btn-primary" data-action="go" data-to="hosts" ${p.interests.length ? "" : "disabled"}>
-          ${p.interests.length ? "Show my matches" : "Pick at least one interest"}
+        <button class="btn btn-primary" data-action="go" data-to="hosts" ${ready ? "" : "disabled"}>
+          ${ready ? "Show my matches" : !p.travelerType ? "Tell us who's traveling" : "Pick at least one interest"}
         </button>
       </div>`;
   },
@@ -274,7 +312,11 @@ const screens = {
       <section class="pad">
         <p class="eyebrow">${esc(c.name.toUpperCase())} · CHINA</p>
         <h2 class="h-big">Meet a local host</h2>
-        <p class="hint">Sorted by what you told us. Every host is ID-checked and interviewed by our team.</p>
+        <p class="hint">Sorted for ${esc(travelerType().plural.toLowerCase())} and what you love doing. Every host is ID-checked and interviewed by our team.</p>
+        ${state.profile.travelerType === "senior" ? `
+        <button class="phone-help" data-action="sim" data-msg="Demo: PengPal support would call you to help you book.">
+          📞 <span><b>Prefer a phone call?</b> PengPal support can help you book.</span>
+        </button>` : ""}
         <div class="sample-tag">Sample profiles</div>
         <div class="host-list">${cards}</div>
         <div class="callout">
@@ -306,16 +348,18 @@ const screens = {
           <div class="badges">${badges(m)}</div>
           <p class="bio">${esc(h.bio)}</p>
 
+          <h3>Experienced with</h3>
+          <div class="chips chips-static">${h.goodFor.map((id) => `<span class="chip chip-type ${id === state.profile.travelerType ? "chip-match" : ""}">${travelerType(id).icon} ${esc(travelerType(id).plural)}</span>`).join("")}</div>
           <h3>Languages</h3>
           <p>${esc(h.languages.join(" · "))}</p>
           <h3>Favorite things to show you</h3>
           <div class="chips chips-static">${h.specialties.map((s) => `<span class="chip">${esc(s)}</span>`).join("")}</div>
 
-          <h3>Price</h3>
+          <h3>Price, all in</h3>
           <div class="price-cards">
-            ${Object.entries(DURATIONS).map(([id, d]) => `<div class="price-card"><span class="price">${usd(PRICE[id])}</span><span>${d.label} · ${d.hours} hrs</span></div>`).join("")}
+            ${Object.entries(DURATIONS).map(([id, d]) => `<div class="price-card"><span class="price">${usd(priceFor(id).total)}</span><span>${d.label} · ${d.hours} hrs</span><small>incl. ${usd(priceFor(id).fee)} fee</small></div>`).join("")}
           </div>
-          <p class="fine">Per group of up to 4. Plus a ${Math.round(SERVICE_FEE_RATE * 100)}% PengPal service fee. Meals, tickets and rides are paid as you go.</p>
+          <p class="fine">Total for your whole group, up to 4. Includes the ${Math.round(SERVICE_FEE_RATE * 100)}% PengPal fee. Meals, tickets and rides extra.</p>
 
           <h3>Reviews</h3>
           <div class="reviews">
@@ -399,7 +443,7 @@ const screens = {
 
         <div class="field">How long
           <div class="seg" role="radiogroup">
-            ${Object.entries(DURATIONS).map(([id, d]) => `<button class="seg-btn ${b.duration === id ? "selected" : ""}" data-action="duration" data-id="${id}" role="radio" aria-checked="${b.duration === id}">${d.label}<small>${d.hours} hrs · ${usd(PRICE[id])}</small></button>`).join("")}
+            ${Object.entries(DURATIONS).map(([id, d]) => `<button class="seg-btn ${b.duration === id ? "selected" : ""}" data-action="duration" data-id="${id}" role="radio" aria-checked="${b.duration === id}">${d.label}<small>${d.hours} hrs · ${usd(priceFor(id).total)}</small></button>`).join("")}
           </div>
         </div>
 
@@ -413,15 +457,63 @@ const screens = {
         </div>
 
         <div class="receipt">
+          <div class="total-big">
+            <span>Total for your group, in USD</span>
+            <b>${usd(pr.total)}</b>
+            <small>${esc(priceNote(b.duration))}</small>
+          </div>
           <div class="row"><span>${esc(h.name)}'s time · ${DURATIONS[b.duration].short}</span><span>${usd(pr.rate)}</span></div>
           <div class="row"><span>PengPal service fee (${Math.round(SERVICE_FEE_RATE * 100)}%)</span><span>${usd(pr.fee)}</span></div>
-          <div class="row total"><span>Total, in USD</span><span>${usd(pr.total)}</span></div>
-          <p class="fine">Charged now and held by PengPal. ${esc(h.name)} is paid after your trip. Free cancellation up to 48 hours before.</p>
+          <p class="fine">${esc(h.name)} is paid after your trip. Free cancellation up to 48 hours before.</p>
         </div>
       </section>
       <div class="cta-bar">
-        <button class="btn btn-primary" data-action="pay">Pay ${usd(pr.total)}</button>
-        <p class="fine">Demo only. No card needed, nothing is charged.</p>
+        <button class="btn btn-primary" data-action="go" data-to="commit">Make it real</button>
+        <p class="fine">Prototype · nothing is booked or charged here</p>
+      </div>`;
+  },
+
+  commit() {
+    const c = state.commit;
+    const options = [
+      { id: "deposit", title: "Hold my trip date", body: "$10 deposit, fully refundable. Refunded if we can't match you with a host." },
+      REAL_HOSTS_READY && { id: "intro", title: "Book a free intro call with a real Shanghai host", body: "15 minutes on video. No payment, no obligation." },
+      { id: "notyet", title: "Not yet", body: "Tell us what's missing." },
+    ].filter(Boolean);
+    const cta = { deposit: "Hold my date · $10 refundable", intro: "Request my intro call", notyet: "Continue" }[c.choice];
+    const ready = c.choice && (c.choice !== "deposit" || c.month);
+    return `
+      <section class="pad">
+        <p class="eyebrow">THIS PART IS REAL</p>
+        <h2 class="h-big">Want to make this trip happen?</h2>
+        <p class="hint">Everything so far was a prototype with sample hosts. But we're matching real
+          first-timers with real hosts now. If you want in, pick one:</p>
+        <div class="option-list" role="radiogroup">
+          ${options.map((o) => `
+            <button class="option ${c.choice === o.id ? "selected" : ""}" data-action="commit-choice" data-id="${o.id}" role="radio" aria-checked="${c.choice === o.id}">
+              <span class="radio" aria-hidden="true"></span>
+              <span><b>${esc(o.title)}</b><span class="muted">${esc(o.body)}</span></span>
+            </button>`).join("")}
+        </div>
+        ${c.choice === "deposit" ? `
+          <label class="field">When's your trip?
+            <input type="month" data-field="commit-month" value="${esc(c.month)}" min="${chinaDateISO(0).slice(0, 7)}">
+          </label>
+          <label class="field">City
+            <select data-field="commit-city">
+              ${Object.entries(CITIES).map(([id, ct]) => `<option value="${id}" ${(c.city || state.profile.city) === id ? "selected" : ""}>${esc(ct.name)}</option>`).join("")}
+            </select>
+          </label>` : ""}
+        ${c.choice === "notyet" ? `
+          <label class="field">What would make you say yes?
+            <textarea data-field="commit-reason" rows="3" placeholder="A lower price, more reviews, a host in another city…">${esc(c.reason)}</textarea>
+          </label>` : ""}
+      </section>
+      <div class="cta-bar">
+        <button class="btn btn-primary" data-action="confirm-commit" ${ready ? "" : "disabled"}>
+          ${ready ? cta : c.choice === "deposit" ? "Pick your trip month" : "Pick one"}
+        </button>
+        <p class="fine">We'll follow up by message. Nothing is charged in this prototype.</p>
       </div>`;
   },
 
@@ -441,6 +533,7 @@ const screens = {
     return `
       <section class="pad">
         <div class="done-note">✔ Booked: ${esc(fmtDate(state.booking.date))} with ${esc(h.name)} · ${DURATIONS[state.booking.duration].short}</div>
+        ${state.commit.choice && state.commit.choice !== "notyet" ? `<div class="done-note">✔ ${esc(commitSummary())}</div>` : ""}
         <h2>Get ready for China</h2>
         <p class="hint">${esc(h.name)} added tips to each step. Stuck? We'll fix it together on day one.</p>
         <div class="meter" aria-label="${doneCount} of ${items.length} done"><span style="width:${(doneCount / items.length) * 100}%"></span></div>
@@ -542,6 +635,7 @@ const screens = {
           <div><span>Host</span><b>${esc(h.name)}</b></div>
           <div><span>Rating</span><b class="stars">${stars(state.review.stars)}</b></div>
           <div><span>Would recommend</span><b>${state.review.nps ?? "–"} / 10</b></div>
+          <div><span>Your next step</span><b>${esc(state.commit.choice ? commitSummary() : "–")}</b></div>
         </div>
       </section>
       <div class="cta-bar">
@@ -550,6 +644,17 @@ const screens = {
       </div>`;
   },
 };
+
+function commitSummary() {
+  const c = state.commit;
+  if (c.choice === "deposit") {
+    const [y, m] = c.month.split("-").map(Number);
+    const month = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", year: "numeric" }).format(new Date(Date.UTC(y, m - 1, 1)));
+    return `Trip date held: ${month}, ${CITIES[c.city || state.profile.city].name} ($10 refundable)`;
+  }
+  if (c.choice === "intro") return "Intro call with a real Shanghai host requested";
+  return "Not yet";
+}
 
 // ---- chat (scripted) ----
 
@@ -613,8 +718,11 @@ function refreshChat() {
 
 function render() {
   if (!screens[state.screen]) state.screen = "welcome";
-  // Screens past the host list need a chosen host; send a stale or reset state back.
+  // Screens past onboarding need a traveler type (v1 saved state has none), and screens past
+  // the host list need a chosen host; send a stale or reset state back.
+  if (FLOW.indexOf(state.screen) > FLOW.indexOf("onboard") && !travelerType()) state.screen = "onboard";
   if (FLOW.indexOf(state.screen) > FLOW.indexOf("hosts") && !host()) state.screen = "hosts";
+  applyTextSize();
   renderTopbar();
   screenEl.innerHTML = screens[state.screen]();
   screenEl.dataset.screen = state.screen;
@@ -640,6 +748,11 @@ document.addEventListener("click", (e) => {
       if (s.profile.city !== el.dataset.id) s.hostId = null;
       s.profile.city = el.dataset.id;
       break;
+    case "traveler-type":
+      s.profile.travelerType = el.dataset.id;
+      if (el.dataset.id !== "solo") s.profile.preferFemale = false;
+      break;
+    case "prefer-female": s.profile.preferFemale = !s.profile.preferFemale; break;
     case "interest": {
       const list = s.profile.interests;
       const id = el.dataset.id;
@@ -661,11 +774,16 @@ document.addEventListener("click", (e) => {
       return go("book");
     case "duration": s.booking.duration = el.dataset.id; break;
     case "party": s.booking.party = Math.min(4, Math.max(1, s.booking.party + Number(el.dataset.d))); break;
-    case "pay": return openPaySheet();
-    case "confirm-pay":
-      s.booking.paid = true;
-      closeSheet();
-      showToast("Payment confirmed (demo). You're booked!");
+    case "commit-choice":
+      s.commit.choice = el.dataset.id;
+      if (!s.commit.city) s.commit.city = s.profile.city;
+      break;
+    case "confirm-commit":
+      showToast({
+        deposit: "Thanks! We'll message you a $10 refundable deposit request to hold your date.",
+        intro: "Thanks! We'll message you times for a call with a real host.",
+        notyet: "Thanks for telling us. It really helps.",
+      }[s.commit.choice]);
       return go("prep");
     case "check": s.checklist[el.dataset.id] = !s.checklist[el.dataset.id]; break;
     case "show-driver": return openDriverSheet();
@@ -712,6 +830,8 @@ document.addEventListener("change", (e) => {
     state.intro.slot = null;
   }
   if (f === "date" && e.target.value) state.booking.date = e.target.value;
+  if (f === "commit-month") state.commit.month = e.target.value;
+  if (f === "commit-city") state.commit.city = e.target.value;
   saveState();
   render();
 });
@@ -719,6 +839,10 @@ document.addEventListener("change", (e) => {
 document.addEventListener("input", (e) => {
   if (e.target.dataset?.field === "comment") {
     state.review.comment = e.target.value;
+    saveState();
+  }
+  if (e.target.dataset?.field === "commit-reason") {
+    state.commit.reason = e.target.value;
     saveState();
   }
 });
@@ -750,20 +874,6 @@ function playVideo() {
   if (!box) return;
   box.innerHTML = `<span class="caption">“Hi, I'm ${esc(h.name)}! I studied in ${esc(h.studied.place)} and now I'm back home in ${esc(city().name)}. I'd love to show you ${esc(h.specialties[0])}, and help you sort out Alipay and DiDi on day one.”</span>
     <span class="video-label">Demo: a 45-second intro video plays here</span>`;
-}
-
-function openPaySheet() {
-  const pr = priceFor(state.booking.duration);
-  openSheet(`
-    <h2>Confirm payment</h2>
-    <div class="receipt">
-      <div class="row"><span>${esc(host().name)} · ${esc(fmtDate(state.booking.date))}</span><span>${usd(pr.rate)}</span></div>
-      <div class="row"><span>Service fee</span><span>${usd(pr.fee)}</span></div>
-      <div class="row total"><span>Total (USD)</span><span>${usd(pr.total)}</span></div>
-    </div>
-    <div class="fake-card">💳 Visa ending in 4242 <span class="muted">(demo)</span></div>
-    <button class="btn btn-primary" data-action="confirm-pay">Pay ${usd(pr.total)}</button>
-    <button class="btn btn-ghost" data-action="close-sheet">Cancel</button>`);
 }
 
 function openDriverSheet() {
