@@ -109,9 +109,14 @@ for an intro call or a place on a trip date, doesn't involve any service being d
   Companies covered this way are supposed to name a representative in China (Art. 53). In
   practice, a hand-matched pilot with 3 hosts is far below anyone's radar. The rule matters once
   PengPal is a real platform.
-- Cross-border transfer rules (security assessment, standard contract) don't apply below
-  100,000 people a year for non-sensitive data, or below 10,000 for sensitive data (CAC
-  Provisions, March 2024). National ID numbers count as sensitive.
+- Cross-border transfer rules (security assessment, standard contract, certification) don't
+  apply when fewer than 100,000 people's **non-sensitive** data leaves China in a calendar year
+  (CAC Provisions, March 2024, Art. 5(4)). **Sensitive data has no small-volume exemption:**
+  sending any amount of it abroad, even for fewer than 10,000 people, needs a standard contract
+  or certification (Art. 8). National ID numbers count as sensitive. *(Corrected Nov 9, 2026.
+  An earlier version said sensitive data was exempt below 10,000. The 10,000 figure in the
+  draft rules was a single exemption threshold, and the final rules dropped it.)* Separate
+  consent from each person is still required for any transfer abroad (PIPL Art. 39).
 - **For the pilot:**
   - Collect only a first name, WeChat ID, languages and experience from hosts. No ID numbers
     or ID photos.
@@ -157,5 +162,6 @@ recruitment, ask whether each candidate already holds a guide certificate.
 - [PBOC rules on personal and business collection codes, Xinhua, Mar 2022](https://www.news.cn/politics/2022-03/01/c_1128424805.htm)
 - [How to pay in China as a foreigner, Wise](https://wise.com/en-cn/blog/how-to-pay-in-china-as-a-foreigner), and [paying contractors in China, Avvio](https://avvio.xyz/blog/pay-contractors-in-china/) (secondary sources; check current limits)
 - [PIPL extraterritorial scope, Arts. 3 and 53, IAPP](https://iapp.org/news/a/top-5-operational-impacts-of-chinas-pipl-part-1-scope-key-definitions-and-lawful-handling-of-personal-information)
+- [JunHe on the CAC Provisions, Art. 5 and Art. 8 thresholds](https://junhe.com/legal-updates/2401) and [Han Kun on sensitive data below 10,000 people](https://www.hankunlaw.com/portal/article/index/cid/8/id/14064.html)
 - [China eases restrictions on cross-border data flows, Covington](https://www.insideprivacy.com/uncategorized/china-eases-restrictions-on-cross-border-data-flows/), and [Arnold & Porter, Nov 2025](https://www.arnoldporter.com/en/perspectives/advisories/2025/11/china-issues-clarifications-cross-border-data-transfer-rules)
 - [Information about tour guides in China, Visit Beijing](https://english.visitbeijing.com.cn/article/47ON6cDV5vb)
