@@ -1,5 +1,7 @@
 # PengPal
 
+<img src="product/pengpal/logo.svg" width="72" alt="PengPal logo: two speech bubbles, a traveler and a local friend in conversation">
+
 > Travel China like you have a friend there: PengPal connects first-time foreign travelers in
 > China with young, English-speaking Chinese locals who help with transportation, payments,
 > food, and local experiences.
