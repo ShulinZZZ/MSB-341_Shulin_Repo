@@ -1,12 +1,10 @@
 # PengPal: Target Customers, Customer Journey & Channels
 
 **Date:** Nov 9, 2026 (Sprint 4 target-customer work)
-**Source:** Copied from the team's Claude Doc (revision 8), so the doc is the live version. The
-journey diagram is only in the doc.
-**Pending in the doc:** 6 suggested edits, not yet accepted. They cover: the 3 real hosts, not
-the 8 sample profiles, for host posts and videos; the host-post wording; the F-1 check before
-any deposit; no VPN advice in the checklist; and the visa note for US travelers. The text below
-is the doc before those edits.
+**Source:** Copied from the team's Claude Doc (revision 29), so the doc is the live version.
+The journey diagram is only in the doc. Revision 29 adds 6 accepted edits: host posts and videos
+come from the 3 real hosts, not the 8 sample profiles; new host-post wording; an F-1 check
+before any deposit; no VPN advice in the checklist; and a visa note for US travelers.
 
 ## Summary
 
@@ -43,7 +41,7 @@ families and older travelers.
 **Primary persona: "Maya, the curious first-timer"**
 
 - 22–35, from the US, UK, Australia or Western Europe; travels solo, as a couple or with one friend
-- Has a Shanghai trip booked or planned within 1–3 months, for 4–10 days, or a 240-hour stopover
+- Has a Shanghai trip booked or planned within 1–3 months, for 4–10 days, or a 240-hour stopover. US travelers need an L visa, or the 240-hour transit rule with an onward flight to a third country
 - Got the idea from TikTok, YouTube or Instagram and wants the "real" Shanghai, not the tour-bus version
 - Urgent worries: Will Alipay work? Which apps and VPN do I need? Can I order food? Will I get scammed or lost?
 - Wants a friend more than a guide: someone her age who knows her culture *and* Shanghai
@@ -70,7 +68,7 @@ she has to believe a stranger in Shanghai is real, safe and worth paying.
 | Stage | What she does | What she thinks and feels | Key impact point | What PengPal must do | Signal to track |
 |---|---|---|---|---|---|
 | 1. Awareness (spark) | Scrolls TikTok/YouTube, sees a Shanghai or #Chinamaxxing video | "Wait, China looks amazing and easy now?" | **The "I could do this" moment:** a relatable creator or host on screen | Post host-made short videos: "I lived in London 3 years, here's my Shanghai" | Views, profile visits, follows |
-| 2. Consideration (planning) | Books flights, checks the visa-free rules, Googles "how to pay in China", reads Reddit | Excitement turns into anxiety: payments, VPN, language, scams | **The anxiety spike.** This is PengPal's best entry point, answering the exact question she's asking | Free "first-timer checklist" (Alipay setup, apps, eSIM, metro), with a host as the face of it | Checklist downloads, emails captured |
+| 2. Consideration (planning) | Books flights, checks the visa-free rules, Googles "how to pay in China", reads Reddit | Excitement turns into anxiety: payments, VPN, language, scams | **The anxiety spike.** This is PengPal's best entry point, answering the exact question she's asking | Free "first-timer checklist" (Alipay setup, apps, eSIM, metro; no VPN recommendations, point to eSIMs instead), with a host as the face of it | Checklist downloads, emails captured |
 | 3. Discovery of PengPal | Lands on the profile/site from a video, a Reddit answer or a friend | "Is this a tour? A dating app? A scam?" | **First 5 seconds:** the promise is clear: *a local friend who lived in your country* | One-line promise, 3 real host faces, how it works in 3 steps, price shown | Landing-to-profile-view rate |
 | 4. Evaluation (trust) | Opens host profiles, compares with going alone or using translation apps | "Is this person real? Will it be awkward? Is it worth it?" | **The host match:** "she studied in Manchester, like me", plus proof (verified ID, reviews, intro video) | Real host profiles, verification badges, a free 10-min intro chat or video, early reviews | Profile views, intro chats requested |
 | 5. Purchase (commit) | Picks a host and dates, pays a deposit | "Low risk, and I can get my money back" | **The ask:** small, refundable, tied to a specific host and date | $10 refundable deposit now; confirm within 24 hours; send a pre-trip welcome message | Deposits / asks (bar: 4 of 8) |
@@ -87,8 +85,8 @@ off on paid ads until a deposit offer converts.
 | Priority | Channel | Journey stage | Why it reaches Maya | First move (Sprint-sized) | Cost |
 |---|---|---|---|---|---|
 | 1 | Reddit and travel communities (r/travelchina, r/shanghai, r/solotravel, China-travel Facebook groups) | 2 Consideration | People post exact trip dates and worries, which means high intent | Answer 10 "first time in Shanghai" questions a week with real help; mention PengPal only when asked | Time only |
-| 2 | Hosts' own networks abroad | 1–5 | Each host lived in a Western country, so their former classmates and coworkers there are warm first-timers | Ask each of the 8 hosts to share one post: "Coming to Shanghai? I'll show you around" | Free |
-| 3 | Short video (TikTok, Instagram Reels, YouTube Shorts) | 1 Awareness | This is where trips are triggered; host faces build trust before a visit to the site | 3 host videos a week: "what I wish London friends knew about Shanghai" | Free + time |
+| 2 | Hosts' own networks abroad | 1–5 | Each host lived in a Western country, so their former classmates and coworkers there are warm first-timers | Once the 3 real Shanghai hosts are signed up, ask each to share one post: "Coming to Shanghai? Let's grab dumplings and I'll help you set up Alipay" | Free |
+| 3 | Short video (TikTok, Instagram Reels, YouTube Shorts) | 1 Awareness | This is where trips are triggered; host faces build trust before a visit to the site | 1 video a week from a host who volunteers to make it: "what I wish London friends knew about Shanghai" | Free + time |
 | 4 | Micro-creators in China travel (10k–100k followers) | 1–4 | They borrow trust they've already earned; one sponsored trip can become a review and a video | Offer 1–2 creators a free hosted day in exchange for honest content | Low |
 | 5 | Search content ("how to set up Alipay", "Shanghai first-timer guide") | 2 Consideration | Captures the anxiety spike at the moment she's searching | One strong checklist page with an email signup | Time; slow to build |
 | 6 | Study-abroad, exchange and language programs bound for Shanghai | 2–5 | A steady flow of first-timers with known arrival dates | Email 3 university offices with a student offer | Free |
@@ -102,7 +100,8 @@ just liked a video.
 - [ ] Prioritize asks to people who match the primary persona *and* have a trip planned within 3 months
 - [ ] For each ask, note the segment, the trip timing and where they first got the China idea (feeds the channel ranking)
 - [ ] Log each decline as one of: "want to see a real host first" · "I'd manage alone / translation apps" · price · timing · other. These map straight onto your retest and drop rules
-- [ ] Ask the 8 hosts to share one post with their networks abroad, to source your next 8 asks from outside your own network
+- [ ] Ask the 3 real hosts (the 8 in the prototype are sample profiles) to share one post with their networks abroad, to source your next 8 asks from outside your own network
+- [ ] Before taking any deposit, email BYU's international student office about F-1 limits on taking money; until they answer, keep every deposit fully refundable
 
 ## Sources
 
