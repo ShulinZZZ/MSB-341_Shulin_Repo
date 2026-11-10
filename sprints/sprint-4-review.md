@@ -95,6 +95,17 @@ work and mentor feedback match it. The plan's "why" was to see whether travelers
 commit and pay. That part, the T11–T18 commitment test and its count, has no notes in the repo
 and no settled result. The logo wasn't done.
 
+**Update after the review (Nov 9, the same evening):** three plan items moved after this report
+and the retro were written. The retro above is unchanged.
+
+| Plan item | Was | Now |
+|---|---|---|
+| New logo in prototype and README | Not done | Done (`2e6e653`): `product/pengpal/logo.svg`, in the prototype, the favicon and the README |
+| `market.md` part 2: journey and channels | In `target-customers.md`, linked from `market.md` | Done in `market.md` itself (`9fb14f6`), linking to `target-customers.md` for sources |
+| Findings write-up | A draft with [CONFIRM] markers, uncommitted | Committed (`9d59c8d`). It concludes the test can't show whether travelers commit money, because payments weren't recorded per session; on the session rows, the bar of 4 of 8 was not met. Missing facts are marked "not recorded" |
+
+Still open: the T11–T18 notes aren't in the repo.
+
 ---
 
 ## Your retro
