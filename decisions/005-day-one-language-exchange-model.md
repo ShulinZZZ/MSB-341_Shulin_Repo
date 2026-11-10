@@ -58,8 +58,9 @@ monetization (`discovery/PengPal/mentor-feedback-sprint-4.md`):
   travelers asked for (setup that works on day one, plus a friend there) instead of access to a
   person. It also fits the language-exchange framing. Cons: untested, and PengPal has to deliver
   the setup help and the chat support itself.
-- **Paid remote calls:** hosts advise from home for about $20. Low legal risk, but it drops the
-  in-person part. This is the fallback.
+- **Paid remote calls:** a host advises from home on a pre-trip video call for about $20. Low
+  legal risk, because advice from home isn't on-site guiding (`legal.md`). Cons: it drops the
+  in-person part, and the host is paid, so it's China-source income they have to declare.
 - **Day rate with a commission:** the 80/20 pitch split, or the prototype's +15%. This has the
   strongest evidence: the $40 half day and a 15% fee accepted when shown upfront. But it's paid
   unlicensed guiding, so it only works through an agency (option 3).
@@ -78,6 +79,14 @@ not for access to an unpaid host.
 The trip pass is paid to PengPal's US side. None of it goes to the host as pay for their time.
 Hosts get the non-cash rewards listed in open question 1.
 
+**Paid remote calls are sold alongside the pass** (added Nov 9). This is a smaller first
+purchase, about $20 for a 30-minute pre-trip video call with a Shanghai local. It's the only
+offer where the host is paid. That's allowed because the host advises from home and doesn't
+accompany anyone. Pay hosts a lump sum after the call, in writing, and tell them it's taxable
+income (`legal.md` section 2). The two offers also test different things. The pass tests
+whether travelers pay for setup help plus a friend there; the call tests whether they pay for
+a host's time at all.
+
 Before it goes live, three things must happen first:
 - **BYU's international student office confirms** that the founders can sell a trip pass.
   Until then, any payment is a fully refundable deposit toward a pass, or the pilot is free.
@@ -93,8 +102,9 @@ Before it goes live, three things must happen first:
 **What changes if this is adopted:**
 - The prototype stops showing hourly or daily host prices and shows one trip-pass price
   instead, listing what's included. That needs a new spec.
-- The deposit ask becomes "a $10 refundable deposit toward a Shanghai trip pass", not holding a
-  host day, so it tests the model we chose.
+- Sessions offer two things instead of holding a host day: "a $10 refundable deposit toward a
+  Shanghai trip pass" and "a $20 pre-trip video call with a Shanghai local"
+  (`discovery/PengPal/interview-guide-v2.md`).
 - Chinese recruiting copy never uses 导游, 陪游, 带团 or 包车.
 - Hosts use WeChat groups or WeCom. There's no mini-program yet, because it needs a Chinese
   entity.
@@ -116,8 +126,9 @@ Before it goes live, three things must happen first:
 - **Lawyer:** if the lawyer says selling a pass that includes the match makes PengPal an
   unlicensed agency, make the pilot free or move straight to option 3.
 - **Host supply:** if fewer than 3 hosts agree to unpaid Mode A, look at option 3 or 4 instead.
-- **Traveler demand:** if fewer than 4 of 8 travelers put down a refundable deposit toward a
-  trip pass, test paid remote calls next. If those fail too, the paid model only works through an
-  agency (option 3).
+- **Traveler demand:** if fewer than 4 of 8 travelers commit to either offer (a refundable
+  deposit toward a trip pass, or a paid remote call), the model we can legally run isn't proven,
+  and paid days only work through an agency (option 3). If most commit to the call but not the
+  pass, lead with calls and rethink what the pass includes.
 - **Agency partner:** if a licensed Shanghai agency agrees to dispatch PengPal hosts, paid days
   move to option 3 and Mode A is no longer needed for them.

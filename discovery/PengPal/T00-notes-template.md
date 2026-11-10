@@ -23,9 +23,14 @@
 | Joined waitlist? City? | yes / no |
 | Referred someone? | yes / no |
 | "Make it real" choice in the app (v2) | hold my trip date / not yet (+ what they typed) |
+| Trip pass: expected price (from Nov 9) | $ |
+| Trip pass: part that matters most (from Nov 9) | setup help / local friend / help during the trip |
 | Deposit ask (v2, verbatim) | "" |
-| Agreed to the $10 request? Trip month, city | yes / no / waitlist date instead |
+| Agreed to the $10 pass deposit? Trip month, city | yes / no |
 | **$10 actually paid?** Date | yes / no / pending, YYYY-MM-DD (refunded? yes / no) |
+| $20 call offered? Agreed? (from Nov 9) | not offered / yes / no |
+| **$20 actually paid?** Call held? | yes / no / pending, YYYY-MM-DD; held yes / no (refunded? yes / no) |
+| Took the free waitlist date instead? | yes / no |
 
 ## Their trip and worries
 
