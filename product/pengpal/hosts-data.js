@@ -68,6 +68,7 @@ const TRAVELER_TYPES = [
 
 const LANGUAGES = ["English", "Spanish", "French", "German", "Portuguese", "Korean"];
 
+// A review's optional `for` names the traveler type it describes; it shows first for that type.
 // Host photos are free Pexels stock photos (hosts/<id>.jpg), cropped to 256px. The people
 // pictured are models, not PengPal hosts. Pexels photo IDs: lin 1645820, qin 8102229,
 // hao 5384445, yue 17503453, mei 18999175, jun 26524785, xin 4078393, rui 7651802.
@@ -85,7 +86,7 @@ const HOSTS = [
     reviews: [
       { who: "Emma, UK", stars: 5, text: "Lin set up Alipay with me in ten minutes. Without that we couldn't have bought anything on day one." },
       { who: "Daniel, US", stars: 5, text: "We'd never have found the stairway noodle place. Felt like visiting a friend." },
-      { who: "Sofia, Spain", stars: 5, text: "Lin planned around my parents (both over 70): lifts, rest stops, no rushing. They loved it." },
+      { who: "Sofia, Spain", for: "senior", stars: 5, text: "Lin planned around my parents (both over 70): lifts, rest stops, no rushing. They loved it." },
     ],
   },
   {
@@ -100,7 +101,7 @@ const HOSTS = [
     reviews: [
       { who: "Liam, Australia", stars: 5, text: "Qin ordered for us at three places and showed us how to scan the QR menus ourselves after." },
       { who: "Hannah, Canada", stars: 5, text: "Best night of our trip. The view from the lanes at night is unreal." },
-      { who: "Grace, US", stars: 5, text: "First solo trip abroad. Qin checked in on me all day and I never felt lost." },
+      { who: "Grace, US", for: "solo", stars: 5, text: "First solo trip abroad. Qin checked in on me all day and I never felt lost." },
     ],
   },
   {
@@ -115,7 +116,7 @@ const HOSTS = [
     reviews: [
       { who: "Chloe, Canada", stars: 5, text: "Hao speaks French too, which made my mom so happy." },
       { who: "Marcus, US", stars: 5, text: "Got DiDi working for us and we used it the rest of the week." },
-      { who: "Ana, Brazil", stars: 5, text: "In town for work. Hao sorted taxis to two client meetings, then took me out for street food." },
+      { who: "Ana, Brazil", for: "business", stars: 5, text: "In town for work. Hao sorted taxis to two client meetings, then took me out for street food." },
     ],
   },
   {
@@ -128,7 +129,7 @@ const HOSTS = [
     bio: "Back home after four years at college in LA. I like slow days: old town, a tea house, a market where you can try everything. Kids and grandparents welcome, I plan the breaks in. I can also help you buy a local SIM or eSIM top-up.",
     trips: 9, rating: 4.9,
     reviews: [
-      { who: "Jake, US", stars: 5, text: "Yue was so patient with our two kids and my dad. The tea house was a highlight." },
+      { who: "Jake, US", for: "family", stars: 5, text: "Yue was so patient with our two kids and my dad. The tea house was a highlight." },
       { who: "Lucía, Mexico", stars: 5, text: "He speaks Spanish! My parents loved him." },
       { who: "Ben, Germany", stars: 5, text: "Very organized, sent a plan the night before." },
     ],
@@ -144,7 +145,7 @@ const HOSTS = [
     bio: "Born in a Shanghai lane house, studied in London. I'll walk you through the neighborhoods where people actually live and get you the best xiaolongbao for under three dollars. I know every lane with a playground, too.",
     trips: 27, rating: 4.9,
     reviews: [
-      { who: "Olivia, UK", stars: 5, text: "Mei made Shanghai easy with a 4- and a 7-year-old. She knew where every clean bathroom was." },
+      { who: "Olivia, UK", for: "family", stars: 5, text: "Mei made Shanghai easy with a 4- and a 7-year-old. She knew where every clean bathroom was." },
       { who: "Ryan, US", stars: 5, text: "She sorted our transit QR code and the metro was easy after that." },
       { who: "Julie, France", stars: 4, text: "Very good food tips. We went back to the dumpling place twice." },
     ],
@@ -161,7 +162,7 @@ const HOSTS = [
     reviews: [
       { who: "Chris, Australia", stars: 5, text: "The ferry tip alone was worth it. Great night out." },
       { who: "Mia, US", stars: 5, text: "Jun knew exactly which rooftop had no line." },
-      { who: "Felix, Germany", stars: 5, text: "Here for a trade fair. Jun got me to the venue and back every day and found great dinners." },
+      { who: "Felix, Germany", for: "business", stars: 5, text: "Here for a trade fair. Jun got me to the venue and back every day and found great dinners." },
     ],
   },
   {
@@ -176,7 +177,7 @@ const HOSTS = [
     reviews: [
       { who: "Ji-woo, South Korea", stars: 5, text: "Xin speaks Korean so well. Felt so comfortable." },
       { who: "Sarah, US", stars: 5, text: "I can order food on my own now. That was my biggest fear." },
-      { who: "Noah, Canada", stars: 5, text: "Exchange student here. Xin felt like a friend my age, not a guide." },
+      { who: "Noah, Canada", for: "student", stars: 5, text: "Exchange student here. Xin felt like a friend my age, not a guide." },
     ],
   },
   {
@@ -191,7 +192,7 @@ const HOSTS = [
     reviews: [
       { who: "Lena, Germany", stars: 5, text: "Rui explained everything in German when I got tired. So kind." },
       { who: "James, UK", stars: 5, text: "Beating the crowds at Yu Garden was a great call." },
-      { who: "Isabel, Brazil", stars: 5, text: "Took my 68-year-old mother. Rui was so patient and kept the day relaxed." },
+      { who: "Isabel, Brazil", for: "senior", stars: 5, text: "Took my 68-year-old mother. Rui was so patient and kept the day relaxed." },
     ],
   },
 ];

@@ -181,6 +181,12 @@ function badges(m) {
   return out.join("");
 }
 
+// Reviews from travelers of the same type come first; the rest keep their order.
+function reviewsFor(h) {
+  const t = state.profile.travelerType;
+  return [...h.reviews.filter((r) => r.for === t), ...h.reviews.filter((r) => r.for !== t)];
+}
+
 // ---- pricing ----
 
 function priceFor(duration) {
@@ -301,6 +307,7 @@ const screens = {
           <span class="badges">${badges(m)}</span>
           <span class="host-meta">${esc(m.h.languages.join(" · "))}</span>
           <span class="host-meta">${esc(m.h.specialties.join(" · "))}</span>
+          <span class="host-meta host-exp">Experienced with ${m.h.goodFor.map((id) => `<span class="${id === state.profile.travelerType ? "exp-match" : ""}"><span aria-hidden="true">${travelerType(id).icon}</span> ${esc(travelerType(id).plural.toLowerCase())}</span>`).join(", ")}</span>
           <span class="host-foot">
             <span class="rating">★ ${m.h.rating.toFixed(1)} <span class="muted">(${m.h.trips} trips)</span></span>
             ${m.shared.length ? `<span class="match">Matches ${m.shared.length} of your interests</span>` : ""}
@@ -312,7 +319,7 @@ const screens = {
       <section class="pad">
         <p class="eyebrow">${esc(c.name.toUpperCase())} · CHINA</p>
         <h2 class="h-big">Meet a local host</h2>
-        <p class="hint">Sorted for ${esc(travelerType().plural.toLowerCase())} and what you love doing. Every host is ID-checked and interviewed by our team.</p>
+        <p class="hint">Sorted for ${esc(travelerType().plural.toLowerCase())} <button class="link-btn" data-action="go" data-to="onboard" aria-label="Change who's traveling">Change</button> and what you love doing. Every host is ID-checked and interviewed by our team.</p>
         ${state.profile.travelerType === "senior" ? `
         <button class="phone-help" data-action="sim" data-msg="Demo: PengPal support would call you to help you book.">
           📞 <span><b>Prefer a phone call?</b> PengPal support can help you book.</span>
@@ -363,9 +370,10 @@ const screens = {
 
           <h3>Reviews</h3>
           <div class="reviews">
-            ${h.reviews.map((r) => `
+            ${reviewsFor(h).map((r) => `
               <div class="review">
                 <div class="review-top"><b>${esc(r.who)}</b><span class="stars" aria-label="${r.stars} stars">${stars(r.stars)}</span></div>
+                ${r.for && r.for === state.profile.travelerType ? `<span class="badge badge-red review-tag">${travelerType(r.for).icon} ${esc(travelerType(r.for).plural)}, like you</span>` : ""}
                 <p>${esc(r.text)}</p>
               </div>`).join("")}
           </div>

@@ -290,6 +290,8 @@ p { margin: 0; line-height: 1.5; }
 .host-main { flex: 1; display: flex; flex-direction: column; gap: 5px; min-width: 0; }
 .host-name { font-weight: 800; font-size: 1.05rem; }
 .host-meta { font-size: 0.82rem; color: var(--slate); }
+.host-exp .exp-match { color: var(--red-dark); font-weight: 600; }
+.review-tag { display: inline-block; margin: 2px 0 6px; }
 .host-foot { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 2px; font-size: 0.82rem; }
 .rating { font-weight: 700; color: var(--gold); }
 .rating .muted { font-weight: 400; }

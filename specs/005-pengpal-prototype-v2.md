@@ -103,3 +103,12 @@ same localStorage state. Nothing is sold, and the hosts stay labeled as sample p
 - [ ] Deployed at https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
 - [ ] Used in the 8 Sprint 4 sessions (T11–T18); each note records traveler type, commitment
       choice and whether the deposit was actually paid
+
+## Changes
+
+**2026-11-09:** Three fixes to traveler types after a review against this spec:
+- Every host card on the list shows "Experienced with …", with the traveler's own type
+  highlighted, not only a badge when the type matches (closes the "every host card" item above).
+- Each host's reviews carry an optional `for` type. On the profile, a review from the same kind
+  of traveler shows first and is tagged "…, like you".
+- The host list has a "Change" link next to "Sorted for …" that goes back to onboarding.
