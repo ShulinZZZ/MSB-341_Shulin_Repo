@@ -1,7 +1,8 @@
 # PengPal Sprint 4 findings: will travelers commit?
 
-**Sessions:** 8, dates not recorded (notes in `Interviews/T11.md`–`T18.md`, not yet in the repo;
-script `interview-guide-v2.md`)
+**Sessions:** 8, dates not recorded (script `interview-guide-v2.md`). The sessions were recorded
+directly in this write-up, not as separate `Interviews/T11.md`–`T18.md` notes, so this file is
+the only record.
 **Who:** new vs returning: not recorded. Screener results: not recorded.
 **Offers asked:** a $10 refundable deposit toward a Shanghai trip pass, and a $20 refundable
 pre-trip call with a real host (offered in 2 of 8 sessions) (decision 005).
@@ -132,4 +133,6 @@ out with no exact dates, so timing is a likely factor. That's an inference, not 
       found recorded.
 - [ ] **Hosts:** H1 is ready. H2 needs her English level confirmed. H3's pay question needs a
       decision before December. All 3 need ID-check dates (see `hosts.md`).
-- [ ] **Notes:** push `Interviews/T11.md`–`T18.md`. They aren't in the repo yet.
+- [ ] **Notes:** next sprint, write one T-note per session from `T00-notes-template.md` on the
+      day of the session, and tally the findings from those notes. This sprint the sessions were
+      recorded only in this write-up, which is how the two tallies came to disagree.

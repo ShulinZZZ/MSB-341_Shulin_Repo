@@ -104,7 +104,10 @@ and the retro were written. The retro above is unchanged.
 | `market.md` part 2: journey and channels | In `target-customers.md`, linked from `market.md` | Done in `market.md` itself (`9fb14f6`), linking to `target-customers.md` for sources |
 | Findings write-up | A draft with [CONFIRM] markers, uncommitted | Committed (`9d59c8d`). It concludes the test can't show whether travelers commit money, because payments weren't recorded per session; on the session rows, the bar of 4 of 8 was not met. Missing facts are marked "not recorded" |
 
-Still open: the T11–T18 notes aren't in the repo.
+**Correction (Nov 9):** there are no separate T11–T18 notes to push. The builder recorded all 8
+sessions directly in the findings write-up instead of in one note per session. So "the T11–T18
+notes never reached the repo" (Where you got stuck, item 1) is better read as "there were no
+separate notes." `findings-sprint-4.md` is the only record of the sessions.
 
 ---
 
