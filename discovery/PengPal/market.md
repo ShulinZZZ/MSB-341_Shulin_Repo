@@ -4,7 +4,9 @@
 **Part 1** (this section): segments, early adopters and their pain points, personas, and an
 ideal customer profile. It's built only from the 10 Sprint 3 sessions (`Interviews/T01.md`–`T10.md`,
 summarized in `findings.md`).
-**Part 2:** the customer journey and channels are in `target-customers.md` (from the team doc).
+**Part 2** (at the end of this file): the customer journey with its key impact points, and the
+channels to reach the ideal customer. It summarizes `target-customers.md`, the copy of the team
+doc, which has the full tables and sources.
 **Caveat:** 10 people, all found through friends, coworkers, classmates or professors. Two
 (T03, T08) didn't pass the screener. Ages weren't recorded except for T04. Treat every number
 here as a direction to test, not a measurement.
@@ -186,3 +188,51 @@ culture.
 - Do people matching the ICP commit (deposit or paid call) more often than the others?
 - Which part of the trip pass matters most to them?
 - Does the early-adopter pattern hold with travelers from outside our own networks?
+
+---
+
+# Part 2: How the ideal customer finds and buys PengPal
+
+Full version with sources: `target-customers.md`. The offer is decision 005's: a trip pass, plus
+paid pre-trip calls.
+
+## Customer journey: awareness to purchase
+
+**The ideal customer goes through five stages, and trust (stage 4) is where they're most likely
+to drop off.** They have to believe a stranger in Shanghai is real, safe and worth paying for.
+Sprint 3 supports this: verification, reviews and an intro before committing decided bookings
+for T04, T06, T07 and T10.
+
+| Stage | What they do | What they think | Key impact point | What PengPal must do |
+|---|---|---|---|---|
+| 1. Awareness | Sees a Shanghai or China travel video on TikTok or YouTube | "China looks amazing and easy now?" | A relatable host or creator on screen | Host-made short videos from a volunteer host |
+| 2. Consideration | Books flights, checks visa rules, searches "how to pay in China", reads Reddit | Excitement turns into worry about communicating, getting around and paying | **The anxiety spike.** PengPal's best entry point | A free first-timer checklist (Alipay, apps, eSIM, metro; no VPN advice), with a host as its face |
+| 3. Discovery | Lands on PengPal from a video, a Reddit answer or a friend | "Is this a tour? A dating app? A scam?" | **The first 5 seconds:** a local friend who lived in your country | One-line promise, real host faces, how it works in 3 steps, the full price shown |
+| 4. Evaluation (trust) | Opens host profiles and compares with going alone | "Is this person real? Will it be awkward? Is it worth it?" | **The host match** ("she studied in California, like me"), plus proof | Verified hosts, reviews, "Experienced with", an intro before paying |
+| 5. Purchase | Commits money | "Low risk, and I can get it back" | **The ask:** small, refundable, tied to a host and dates | $10 refundable deposit toward the pass, or a $20 pre-trip call |
+
+**What Sprint 4 added:**
+- **Stage 5 hasn't produced clean evidence yet.** Payments weren't recorded per session
+  (`findings-sprint-4.md`).
+- **Every Sprint 4 traveler's trip was in 2027,** which suggests the ask came too early in
+  their journey.
+
+## Channels to reach the ideal customer
+
+**Start with the three cheapest channels that reach people who already have a trip planned:**
+travel communities, the hosts' own networks abroad, and host-made short video. Hold off on paid
+ads until a paid offer converts.
+
+| Priority | Channel | Journey stage | Why it reaches the ideal customer | First move | Cost |
+|---|---|---|---|---|---|
+| 1 | Reddit and travel communities (r/travelchina, r/shanghai, r/solotravel, China-travel Facebook groups) | 2 | People post exact trip dates and worries, which means high intent and dated trips | Answer 10 "first time in Shanghai" questions a week; mention PengPal only when asked | Time |
+| 2 | The real hosts' networks abroad | 1–5 | H1–H3 studied or lived in the US, Japan and Australia, so their old classmates are warm first-timers | Each host shares one post: "Coming to Shanghai? Let's grab dumplings and I'll help you set up Alipay" | Free |
+| 3 | Short video (TikTok, Reels, Shorts) | 1 | Where trips are triggered; host faces build trust early | 1 video a week from a host who volunteers to make it | Free + time |
+| 4 | China-travel micro-creators (10k–100k followers) | 1–4 | Borrowed trust; one hosted meetup can become a video and a review | Offer 1–2 creators a free trip pass for honest content | Low |
+| 5 | Search content ("how to set up Alipay", "Shanghai first-timer guide") | 2 | Catches the anxiety spike while they search | One strong checklist page with an email signup | Time; slow |
+| 6 | Study-abroad and exchange programs bound for Shanghai | 2–5 | A steady flow of first-timers with known arrival dates | Email 3 university offices | Free |
+| Later | Paid social ads; eSIM, insurance and hostel partners | 1–5 | Scales once conversion is known | Only after a paid offer passes the bar | Paid |
+
+**Pick channels by intent first.** Someone with booked dates converts far better than someone who
+liked a video. That matches the Sprint 4 retro's change: recruit travelers whose trip is booked
+within 3 months. Channels 1 and 6 surface those people directly.
