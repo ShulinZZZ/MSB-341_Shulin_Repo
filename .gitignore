@@ -10,3 +10,6 @@ build/
 
 # Private course feedback (grades), keep out of the public repo
 Feedback/
+
+# Flyer PDF has real names in its footer; the PNG version is committed instead
+discovery/PengPal/PengPal Interview Flyer.pdf
