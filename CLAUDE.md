@@ -20,16 +20,20 @@ a brand new session act like a colleague who already knows what you are working 
 
 ## Current state
 
-- **This sprint's goal (Sprint 4, Oct 26 – Nov 9):** Prototype v2 with traveler types and the
-  all-in price, a China legal check, 3 real Shanghai hosts, and 8 sessions asking travelers for a
-  real commitment (intro call or $10 deposit), plus target-customer work and mentor feedback
-  (see sprints/sprint-4-plan.md, which has weekly quotas).
-- **Last sprint's result:** 10 traveler sessions; all said they'd pay, 8 joined the waitlist;
-  $40 half day held up best; biggest gap is no traveler-type options
-  (see discovery/PengPal/findings.md).
+- **This sprint's goal (Sprint 5, from Nov 11):** Rerun the commitment test with 8 travelers
+  whose trip is within 6 months and decide go or drop: go if 4 of 8 pay ($10 trip-pass deposit
+  or $20 pre-trip call) and don't ask for a refund within 7 days. Bar goes in decision 006 before
+  the first session. Also: same-day T-notes, spec 006 trip pass, friend-first pitch with a group
+  type, a delivered call if anyone pays, and a competitor positioning table. TAM/SAM/SOM moved
+  out (see sprints/sprint-5-plan.md).
+- **Last sprint's result (Sprint 4):** Legal check, prototype v2, 3 Shanghai hosts, market.md
+  and mentor feedback done, but the commitment test couldn't show whether travelers pay: every
+  trip was in 2027, and the tallies contradicted each other (see
+  discovery/PengPal/findings-sprint-4.md and sprints/sprint-4-review.md).
 - **Live at:** https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
 - **Biggest open risk:** Whether travelers will actually pay, not just say they will; after
-  that, local regulations on paid hosts, host verification, and traveler safety.
+  that, host verification and traveler safety. Hosts are unpaid language-exchange partners and
+  only the pre-trip call is paid, because of China legal limits (decisions/004, 005).
 
 ## How this repo works
 
