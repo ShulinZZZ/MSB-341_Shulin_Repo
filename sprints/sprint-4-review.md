@@ -142,3 +142,5 @@ The hardest part was getting clean results. Building the prototype and writing u
 I’d rate this sprint a 4 out of 5, one point harder than the 3 I predicted.
 
 **What will you change next sprint?** What I’ll change next sprint: I’ll only run the commitment test with travelers who have a trip to China booked within the next 3 months. I’ll add that as a required screener question before I book any session. This sprint, every traveler’s trip was in 2027, so their answers mostly reflected timing, not whether they’d pay for PengPal.
+
+*Update (Nov 11, Sprint 5 planning):* the trip window is widened from 3 months to **6 months**. The commitment test will run with travelers whose trip to China is within the next 6 months, and that is the required screener question (see `sprints/sprint-5-plan.md` and `decisions/006-sprint-5-go-drop-bar.md`).
