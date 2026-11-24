@@ -30,7 +30,7 @@ a brand new session act like a colleague who already knows what you are working 
 - **Where Sprint 5 stands (Nov 23):** 8 sessions ran Nov 16–19 (T19–T26); 5 of 8 paid, 1 has
   passed the 7-day check, and the rest finish Nov 24 and Nov 26. The product lead called it a GO on
   Nov 23, ahead of those checks (decision 006, Result); log the checks there.
-  3 paid $20 calls still to deliver (T19, T23, T26). Spec 006, the group type, the sign-up form and
+  $20 calls: T19's delivered Nov 18 (H1); T23 and T26 still to deliver. Spec 006, the group type, the sign-up form and
   competitors.md are live or committed. The form needs a Formspree ID; spec 008 (Supabase) is a draft.
 - **Last sprint's result (Sprint 4):** Legal check, prototype v2, 3 Shanghai hosts, market.md
   and mentor feedback done, but the commitment test couldn't show whether travelers pay: every

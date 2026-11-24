@@ -63,11 +63,11 @@ A payment counts only if the person paid, didn't ask for a refund, and the 7-day
 | Offered the $20 call | 4 (T19, T20, T23, T26) |
 | Paid the $20 | 3 (T19, T23, T26) |
 | Paid either offer | 5 of 8 |
-| Asked for a refund within 7 days | 0 so far |
+| Asked for a refund within 7 days | 0 so far (confirmed by the product lead, Nov 23) |
 | Passed the 7-day check | 1 (T19) |
 | Still waiting on the 7-day check | 4 (T22, T23 on Nov 24; T25, T26 on Nov 26) |
 | **Kept payment for 7 days (counts toward the bar)** | **1 confirmed; 5 if no refunds by Nov 26** |
-| $20 calls delivered | 0 of 3 |
+| $20 calls delivered | 1 of 3 (T19: Nov 18, H1, about 15 min) |
 
 ## Result
 
@@ -130,5 +130,6 @@ the go/drop discussion. It also matches `../competitors.md`: AI apps are the clo
 - Nov 24: check T22 and T23 for refund requests. Update their T-notes, then this file.
 - Nov 26: check T25 and T26. Record both checks in decision 006 and as a dated update to
   `sprints/sprint-5-review.md`. If refunds bring the count under 4 of 8, review the go against the bar.
-- Deliver the 3 paid $20 calls (T19, T23, T26) with a Shanghai host, and log each in its T-note.
+- Deliver the 2 remaining paid $20 calls (T23, T26) with a Shanghai host, and log each in its T-note.
+  T19's call was delivered Nov 18 by H1.
 - Go: next steps to be set in Sprint 6 planning.
