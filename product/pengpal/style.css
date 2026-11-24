@@ -528,6 +528,36 @@ p { margin: 0; line-height: 1.5; }
 }
 .sos-btn small { font-size: 0.75rem; font-weight: 600; }
 
+/* ---- join form (spec 007) ---- */
+
+.about-join { margin-top: 10px; }
+.btn-join { color: var(--navy); background: var(--card); }
+.btn-join.joined { color: var(--green); border-color: var(--green); cursor: default; }
+.join-form { display: flex; flex-direction: column; }
+.join-form [hidden] { display: none; }
+#join-title:focus { outline: none; }
+.join-form .hint { margin-bottom: 16px; }
+.req { color: var(--red); }
+.join-form fieldset { border: 0; padding: 0; margin: 0 0 14px; min-width: 0; }
+.join-form legend { font-weight: 600; font-size: 0.9rem; padding: 0; margin-bottom: 6px; }
+.yesno { display: flex; gap: 8px; }
+.yesno label, .consent {
+  display: flex; align-items: center; gap: 10px;
+  border: 1.5px solid var(--line); border-radius: 12px; background: var(--card);
+  padding: 12px; font-size: 0.92rem; cursor: pointer;
+}
+.yesno label { flex: 1; }
+.yesno label:has(input:checked) { border-color: var(--red); background: var(--red-soft); }
+.yesno input, .consent input { accent-color: var(--red); width: 18px; height: 18px; margin: 0; flex: none; }
+.consent { align-items: flex-start; margin-bottom: 14px; font-weight: 400; }
+.consent input { margin-top: 2px; }
+.gotcha { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.join-status { font-size: 0.9rem; margin: 0 0 10px; }
+.join-status:empty { display: none; }
+.join-status.error { color: var(--red-dark); font-weight: 600; }
+.join-done { text-align: center; padding: 18px 0 6px; }
+.join-done .pmark { margin: 0 auto 12px; }
+
 /* ---- review ---- */
 
 .star-input { display: flex; justify-content: center; gap: 6px; margin: 14px 0 6px; }

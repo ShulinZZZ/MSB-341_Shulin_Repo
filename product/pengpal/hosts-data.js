@@ -14,6 +14,10 @@ const SERVICE_FEE_RATE = 0.15;        // PengPal fee on top of the host rate, pl
 // "intro call with a real host" option on the commitment screen.
 const REAL_HOSTS_READY = false;
 
+// Formspree form ID for the "Join the first trips" sign-up form (spec 007): the part after /f/
+// in the form's endpoint. Not a secret. Left empty, the form shows "Sign-ups open soon".
+const FORMSPREE_ID = "";
+
 const CITIES = {
   chongqing: {
     name: "Chongqing",

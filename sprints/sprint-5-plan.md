@@ -23,7 +23,7 @@ if anyone pays for one, and build the competitor positioning table.
 - The prototype and pitch lead with meeting a local friend, and offer a group traveler type.
 - If anyone pays for the $20 call, it is delivered by one of the Shanghai hosts and logged.
 - A competitor positioning table in `discovery/PengPal/`.
-- Milestone, by Sat Nov 21: a contact form is live on the PengPal page. It asks for trip date
+- Milestone, by Sat Nov 28: a contact form is live on the PengPal page. It asks for trip date
   (required, within 6 months) and how the traveler heard about PengPal. At least 2 travelers from
   outside our network (not a friend, family member or BYU contact of anyone on the team, and not
   referred by one) submit it, and each is booked for a commitment-test session.
@@ -35,3 +35,5 @@ if anyone pays for one, and build the competitor positioning table.
   Nov 21). I need evidence from strangers to prove the idea is valid and that customers actually
   want to buy it, which fixes what broke Sprint 4. My mentor told me to put a real app in front
   of users to validate the idea.
+- Nov 23: moved the contact-form milestone from Nov 21 to Sat Nov 28. The form (spec 007) wasn't
+  built by Nov 21. It's built now, and it sends sign-ups to Formspree.

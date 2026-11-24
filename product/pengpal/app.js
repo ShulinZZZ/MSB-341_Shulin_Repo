@@ -239,6 +239,9 @@ const screens = {
       </section>
       <div class="cta-bar">
         <button class="btn btn-primary" data-action="go" data-to="onboard">Find my local friend</button>
+        ${hasJoined()
+          ? `<button class="btn btn-ghost btn-join joined" data-action="open-join">You're on the list ✓</button>`
+          : `<button class="btn btn-ghost btn-join" data-action="open-join">Going to China soon? Join the first trips</button>`}
         <p class="fine">Prototype · sample hosts · nothing is charged</p>
       </div>`;
   },
@@ -731,6 +734,8 @@ function render() {
   if (FLOW.indexOf(state.screen) > FLOW.indexOf("onboard") && !travelerType()) state.screen = "onboard";
   if (FLOW.indexOf(state.screen) > FLOW.indexOf("hosts") && !host()) state.screen = "hosts";
   applyTextSize();
+  const joinLink = document.getElementById("join-link");
+  if (joinLink) joinLink.textContent = hasJoined() ? "You're on the list ✓" : "Going to China soon? Join the first trips";
   renderTopbar();
   screenEl.innerHTML = screens[state.screen]();
   screenEl.dataset.screen = state.screen;
@@ -800,6 +805,7 @@ document.addEventListener("click", (e) => {
       closeSheet();
       return showToast(el.dataset.msg);
     case "close-sheet": return closeSheet();
+    case "open-join": return openJoin();
     case "quick": {
       const opt = CHAT_SCRIPT[s.chatStep].options[Number(el.dataset.i)];
       s.chatStep += 1;
@@ -831,6 +837,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 document.addEventListener("change", (e) => {
+  if (e.target.name === "heard") return toggleHeardOther(e.target);
   const f = e.target.dataset?.field;
   if (!f) return;
   if (f === "country" || f === "language") {
@@ -856,6 +863,10 @@ document.addEventListener("input", (e) => {
 });
 
 document.addEventListener("submit", (e) => {
+  if (e.target.dataset.action === "join") {
+    e.preventDefault();
+    return submitJoin(e.target);
+  }
   if (e.target.dataset.action !== "send") return;
   e.preventDefault();
   const input = e.target.elements.msg;
@@ -909,6 +920,168 @@ function openSosSheet() {
     <button class="btn btn-ghost" data-action="close-sheet">Close</button>`);
 }
 
+// ---- join the first trips (spec 007) ----
+// Sends each sign-up to Formspree. The visitor's details are never kept in the browser:
+// the only thing saved is that they joined.
+
+const JOIN_KEY = "pengpal-join.v1";
+const JOIN_CHANNEL = (new URLSearchParams(location.search).get("src") || "").trim().slice(0, 60) || "direct";
+const OTHER_TRIP = { later: "Later than that", notbooked: "Not booked yet" };
+
+function hasJoined() {
+  try {
+    return JSON.parse(localStorage.getItem(JOIN_KEY))?.joined === true;
+  } catch {
+    return false;
+  }
+}
+
+function markJoined() {
+  try {
+    localStorage.setItem(JOIN_KEY, JSON.stringify({ joined: true }));
+  } catch {
+    // Private mode: the sign-up still went through, the button just won't remember it.
+  }
+}
+
+// This month plus the next 6, by name. A trip in one of these months counts as qualified.
+function tripMonths() {
+  const now = new Date();
+  return Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    return {
+      value: `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`,
+      label: new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric" }).format(d),
+    };
+  });
+}
+
+function openJoin() {
+  if (hasJoined()) return openJoinDone();
+  const ready = !!FORMSPREE_ID;
+  const req = `<span class="req" aria-hidden="true">*</span>`;
+  const select = (name, label, options) => `
+    <label class="field"><span>${label} ${req}</span>
+      <select name="${name}" required>
+        <option value="">Choose one</option>
+        ${options.map((o) => typeof o === "string"
+          ? `<option>${esc(o)}</option>`
+          : `<option value="${esc(o.value)}">${esc(o.label)}</option>`).join("")}
+      </select>
+    </label>`;
+  openSheet(`
+    <form class="join-form" data-action="join">
+      <h2 id="join-title" tabindex="-1">Join PengPal's first trips</h2>
+      <p class="hint">We're hand-matching our first travelers with English-speaking locals in Chongqing and
+        Shanghai. Leave your details and we'll email you to set up a 30-minute video call. Nothing to pay now.</p>
+
+      <label class="field"><span>Email ${req}</span>
+        <input type="email" name="email" required autocomplete="email" maxlength="120">
+      </label>
+      <label class="field"><span>First name <span class="muted">(optional)</span></span>
+        <input type="text" name="first_name" autocomplete="given-name" maxlength="60">
+      </label>
+      ${select("trip_month", "When's your trip?", [
+        ...tripMonths(),
+        { value: "later", label: OTHER_TRIP.later },
+        { value: "notbooked", label: OTHER_TRIP.notbooked },
+      ])}
+      ${select("city", "Which city?", ["Chongqing", "Shanghai", "Both", "Somewhere else", "Not sure yet"])}
+      ${select("party", "Who's going?", ["Just me", "With a partner", "With friends", "With family"])}
+      ${select("heard", "How did you hear about PengPal?", ["Reddit", "Facebook group", "Instagram or TikTok", "A flyer", "A friend sent it", "Other"])}
+      <label class="field" id="heard-other" hidden><span>Where did you hear about it? ${req}</span>
+        <input type="text" name="heard_other" maxlength="200">
+      </label>
+
+      <fieldset>
+        <legend>Do you know anyone on the PengPal team? ${req}</legend>
+        <div class="yesno">
+          <label><input type="radio" name="knows_team" value="yes" required> Yes</label>
+          <label><input type="radio" name="knows_team" value="no"> No</label>
+        </div>
+      </fieldset>
+
+      <label class="consent">
+        <input type="checkbox" name="consent" value="yes" required>
+        <span>PengPal can email me about a call. My details are only used for this. ${req}</span>
+      </label>
+
+      <div class="gotcha" aria-hidden="true">
+        <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <p class="join-status" role="status" aria-live="polite">${ready ? "" : "Sign-ups open soon."}</p>
+      <button type="submit" class="btn btn-primary" ${ready ? "" : "disabled"}>${ready ? "Join the first trips" : "Sign-ups open soon"}</button>
+      <button type="button" class="btn btn-ghost" data-action="close-sheet">Not now</button>
+    </form>`);
+  document.getElementById("join-title").focus({ preventScroll: true });
+}
+
+function toggleHeardOther(select) {
+  const box = document.getElementById("heard-other");
+  const other = select.value === "Other";
+  box.hidden = !other;
+  box.querySelector("input").required = other;
+}
+
+async function submitJoin(form) {
+  const btn = form.querySelector("button[type=submit]");
+  const status = form.querySelector(".join-status");
+  if (!FORMSPREE_ID || btn.disabled) return;
+  const f = new FormData(form);
+  const month = tripMonths().find((m) => m.value === f.get("trip_month"));
+  const trip = month ? month.label : OTHER_TRIP[f.get("trip_month")];
+  const qualified = month ? "yes" : "no";
+  const data = {
+    email: f.get("email").trim(),
+    first_name: f.get("first_name").trim(),
+    trip_month: trip,
+    city: f.get("city"),
+    party: f.get("party"),
+    heard: f.get("heard") === "Other" ? `Other: ${f.get("heard_other").trim()}` : f.get("heard"),
+    knows_team: f.get("knows_team"),
+    consent: "yes",
+    channel: JOIN_CHANNEL,
+    qualified,
+    page_version: "spec-007",
+    _gotcha: f.get("_gotcha"),
+    _subject: `PengPal sign-up · ${trip} · qualified: ${qualified}`,
+  };
+
+  btn.disabled = true;
+  btn.textContent = "Sending…";
+  status.textContent = "";
+  status.classList.remove("error");
+  try {
+    const res = await fetch(`https://formspree.io/f/${encodeURIComponent(FORMSPREE_ID)}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(data),
+    });
+    if (!res.ok) throw new Error(`Formspree ${res.status}`);
+    markJoined();
+    render();
+    openJoinDone();
+  } catch {
+    // Keep everything they typed; only the status line and button change.
+    status.textContent = "That didn't send. Check your connection and try again.";
+    status.classList.add("error");
+    btn.disabled = false;
+    btn.textContent = "Join the first trips";
+  }
+}
+
+function openJoinDone() {
+  openSheet(`
+    <div class="join-done">
+      <span class="pmark pmark-lg" aria-hidden="true">P</span>
+      <h2 id="join-title" tabindex="-1">You're in.</h2>
+      <p class="hint">We'll email you within 2 days to find a time.</p>
+    </div>
+    <button class="btn btn-ghost" data-action="close-sheet">Close</button>`);
+  document.getElementById("join-title").focus({ preventScroll: true });
+}
+
 async function share() {
   const data = { title: "PengPal", text: "Travel China like you have a friend there.", url: location.href };
   try {
@@ -924,3 +1097,5 @@ async function share() {
 }
 
 render();
+// Links in posts and flyers use ?join (optionally &src=channel) to open the sign-up form directly.
+if (new URLSearchParams(location.search).has("join")) openJoin();
