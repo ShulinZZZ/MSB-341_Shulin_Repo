@@ -40,10 +40,16 @@ mismatch between this file and your work is not.
 - **Repos:** ShulinZZZ/MSB-341_Shulin_Repo, public, shared with sdmurff and the TA
 - **Live:**
   - MCAT Prep Tracker: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/mcat/
-  - PengPal clickable prototype: https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
+  - PengPal clickable prototype (trip pass, spec 006): https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/
+  - PengPal sign-up form (spec 007): https://shulinzzz.github.io/MSB-341_Shulin_Repo/product/pengpal/?join
   - Gapmap with Knowledge Tree (prototype used in Sprint 2 tests): https://claude.ai/artifact/42hitm4hF1kYmTd2xPHfnx
   - To-do app (side project): https://msb-341shulinrepo-todo.vercel.app
 - **Docs:**
+  - Sprint 5 commitment retest: T19–T26 in `discovery/PengPal/Interviews/`, tallied in
+    `discovery/PengPal/Interviews/findings-sprint-5.md`; go/drop bar in `decisions/006-sprint-5-go-drop-bar.md`
+  - PengPal competitor positioning: `discovery/PengPal/competitors.md`
+  - PengPal sign-up leads (anonymous): `discovery/PengPal/leads.md`
+  - Sprint 4 commitment test: `discovery/PengPal/findings-sprint-4.md`; market: `discovery/PengPal/market.md`
   - Sprint 3 PengPal traveler sessions: `discovery/PengPal/Interviews/` (T01–T10), findings in
     `discovery/PengPal/findings.md`, interview guide in `discovery/PengPal/interview-guide.md`
   - Sprint 2 interview and test notes: `discovery/interviews/` (002–012, plus the Word notes and summaries)

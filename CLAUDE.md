@@ -8,7 +8,8 @@ a brand new session act like a colleague who already knows what you are working 
 - **What it is:** PengPal, a service that connects first-time foreign travelers in China with
   young, English-speaking Chinese locals who help them navigate transportation, payments,
   food, and authentic local experiences. Pilot cities: Chongqing + Shanghai (decisions/003).
-  Currently a clickable prototype (specs/004); first trips are to be hand-matched.
+  Currently a clickable prototype with a $49 trip pass (spec 006) and a sign-up form (spec 007);
+  first trips are to be hand-matched.
 - **Who it is for:** People planning a first-time trip to China in the next year.
 - **My role:** Product lead, PM, and builder on a team.
 - **Why they would use it:** Assumed problem, not yet validated with travelers — it comes from
@@ -26,6 +27,10 @@ a brand new session act like a colleague who already knows what you are working 
   the first session. Also: same-day T-notes, spec 006 trip pass, friend-first pitch with a group
   type, a delivered call if anyone pays, and a competitor positioning table. TAM/SAM/SOM moved
   out (see sprints/sprint-5-plan.md).
+- **Where Sprint 5 stands (Nov 23):** 8 sessions ran Nov 16–19 (T19–T26); 5 of 8 paid, 1 has
+  passed the 7-day check, and the rest finish Nov 24 and Nov 26, when the final go/drop call is made.
+  3 paid $20 calls still to deliver (T19, T23, T26). Spec 006, the group type, the sign-up form and
+  competitors.md are live or committed. The form needs a Formspree ID; spec 008 (Supabase) is a draft.
 - **Last sprint's result (Sprint 4):** Legal check, prototype v2, 3 Shanghai hosts, market.md
   and mentor feedback done, but the commitment test couldn't show whether travelers pay: every
   trip was in 2027, and the tallies contradicted each other (see
