@@ -13,3 +13,7 @@ Feedback/
 
 # Flyer PDF has real names in its footer; the PNG version is committed instead
 discovery/PengPal/PengPal Interview Flyer.pdf
+
+# Local drafts that are not part of the live site (e.g. the Supabase version of the PengPal
+# prototype, kept here until spec 008 merges it into product/pengpal/)
+drafts/
