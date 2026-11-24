@@ -1,6 +1,6 @@
 # Spec 006: PengPal trip pass screen (prototype v3)
 
-**Status:** Draft. Confirm before building.
+**Status:** Confirmed 2026-11-23, building. Section 7 (group type, friend-first pitch) added the same day.
 **Date:** 2026-11-09
 
 ## Problem
@@ -42,7 +42,8 @@ flow keeps its screens, but "Book your day" becomes "Your trip pass."
 - **What's included,** in this order, each with one line of detail:
   1. **A local friend to meet:** "[Host] meets you once, in daytime, somewhere public: food,
      the metro, a neighborhood. They're a language-exchange partner who wants to practice
-     English, not a paid guide." Under it: "If you eat or go somewhere together, you cover
+     English, not someone you pay." (Changed from "not a paid guide" on Nov 23: the definition of
+     done bans the word "guide" on every screen.) Under it: "If you eat or go somewhere together, you cover
      your own costs, and their share."
   2. **Help getting around and being understood during your trip:** "Message PengPal in English
      any day of your trip: directions, a menu or a message to translate, what to say to a driver."
@@ -115,6 +116,20 @@ The options are now:
 - **Old state:** a traveler with v2 state doesn't hit an error, because missing fields count as
   unset.
 - **Restart demo** clears the new fields.
+
+### 7. Group traveler type and friend-first pitch (added Nov 23)
+
+The Sprint 5 plan asks for the prototype to lead with meeting a local friend and to offer a group
+traveler type. 3 of the 8 Sprint 5 travelers were groups (`findings-sprint-5.md`).
+
+- **New traveler type, "Group of friends":** in `TRAVELER_TYPES`, with a badge ("Great with friend
+  groups") and plural ("Groups of friends"). Four sample hosts list it in `goodFor` (Qin, Hao, Jun,
+  Xin), and each gets a review from a group of 4 or fewer, so matching and "like you" reviews work
+  for it.
+- **The pass still covers up to 4 people.** A larger group isn't priced in this prototype.
+- **Welcome screen leads with the friend:** the lead line says you meet a young, English-speaking
+  local friend who wants to practice English, and the first of the three points is the local
+  friend. The host list heading becomes "Meet your local friend".
 
 ## Out of scope
 

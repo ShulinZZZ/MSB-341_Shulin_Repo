@@ -7,11 +7,11 @@ const STEP_TITLE = {
   hosts: "Your matches",
   profile: "Host profile",
   intro: "Video intro",
-  book: "Book your day",
+  book: "Trip pass",
   commit: "Make it real",
   prep: "Before you fly",
   trip: "Trip day",
-  review: "Rate your day",
+  review: "How it went",
 };
 const TOTAL_STEPS = 9;
 
@@ -29,9 +29,10 @@ function defaultState() {
     profile: { city: "chongqing", country: "us", language: "English", interests: [], travelerType: null, preferFemale: false },
     hostId: null,
     intro: { slot: null },
-    booking: { date: null, duration: "half", party: 2 },
-    // The real-commitment ask (spec 005). Nothing is charged here; the facilitator follows up.
-    commit: { choice: null, month: "", city: "", reason: "" },
+    booking: { date: null, party: 2 },
+    // The real-commitment ask (specs 005, 006). Nothing is charged here; the facilitator follows up.
+    // `passPrice` is the price this traveler saw; `mostValued` is the part of the pass they picked.
+    commit: { choice: null, month: "", city: "", reason: "", mostValued: "", passPrice: null },
     checklist: {},
     chat: [],
     chatStep: 0,
@@ -43,7 +44,10 @@ function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return defaultState();
-    return { ...defaultState(), ...JSON.parse(raw) };
+    const saved = { ...defaultState(), ...JSON.parse(raw) };
+    saved.commit = { ...defaultState().commit, ...saved.commit };
+    if (saved.commit.choice === "intro") saved.commit.choice = "call";
+    return saved;
   } catch {
     return defaultState();
   }
@@ -187,18 +191,24 @@ function reviewsFor(h) {
   return [...h.reviews.filter((r) => r.for === t), ...h.reviews.filter((r) => r.for !== t)];
 }
 
-// ---- pricing ----
+// ---- pricing (spec 006) ----
 
-function priceFor(duration) {
-  const rate = PRICE[duration];
-  const fee = Math.round(rate * SERVICE_FEE_RATE * 100) / 100;
-  return { rate, fee, total: rate + fee };
+// One trip-pass price everywhere. A ?pass=29 link sets it for this visit (price test by link).
+const PASS_PRICE_SHOWN = (() => {
+  const n = Number(new URLSearchParams(location.search).get("pass"));
+  return Number.isInteger(n) && n > 0 && n <= 500 ? n : PASS_PRICE;
+})();
+
+function passPrice() {
+  return PASS_PRICE_SHOWN;
 }
 
-// The line under every all-in total, so the fee and what's covered are never a surprise.
-function priceNote(duration) {
-  return `Includes ${usd(priceFor(duration).fee)} PengPal fee · whole group up to 4 · meals, tickets and rides extra`;
-}
+// The three parts of the pass, in the order the pass screen lists them.
+const PASS_PARTS = [
+  { id: "friend", label: "The local friend" },
+  { id: "during", label: "Help during the trip" },
+  { id: "setup", label: "Setup before you go" },
+];
 
 // ---- top bar ----
 
@@ -229,12 +239,12 @@ const screens = {
         <div class="lanterns" aria-hidden="true"><span></span><span></span></div>
         <span class="pmark pmark-xl" aria-hidden="true">P</span>
         <h1>Travel China like you have a friend there.</h1>
-        <p class="lead">Get matched with a young, English-speaking local who helps with food, places and
-          getting around: Alipay, DiDi, QR menus and all.</p>
+        <p class="lead">Meet a young, English-speaking local in Chongqing or Shanghai who wants to
+          practice English, and gets you around while you're there.</p>
         <ul class="hero-points">
-          <li><b>Before you go</b> Meet your host on a short video call</li>
-          <li><b>In the city</b> Explore local food and neighborhoods together</li>
-          <li><b>Practical help</b> Set up apps, transit and payments</li>
+          <li><b>A local friend</b> Say hi on a short video call, then meet up in the city</li>
+          <li><b>During your trip</b> Message us in English for directions, menus and drivers</li>
+          <li><b>Before you go</b> Set up Alipay, WeChat, an eSIM and the metro, step by step</li>
         </ul>
       </section>
       <div class="cta-bar">
@@ -321,7 +331,7 @@ const screens = {
     return `
       <section class="pad">
         <p class="eyebrow">${esc(c.name.toUpperCase())} · CHINA</p>
-        <h2 class="h-big">Meet a local host</h2>
+        <h2 class="h-big">Meet your local friend</h2>
         <p class="hint">Sorted for ${esc(travelerType().plural.toLowerCase())} <button class="link-btn" data-action="go" data-to="onboard" aria-label="Change who's traveling">Change</button> and what you love doing. Every host is ID-checked and interviewed by our team.</p>
         ${state.profile.travelerType === "senior" ? `
         <button class="phone-help" data-action="sim" data-msg="Demo: PengPal support would call you to help you book.">
@@ -365,11 +375,15 @@ const screens = {
           <h3>Favorite things to show you</h3>
           <div class="chips chips-static">${h.specialties.map((s) => `<span class="chip">${esc(s)}</span>`).join("")}</div>
 
-          <h3>Price, all in</h3>
-          <div class="price-cards">
-            ${Object.entries(DURATIONS).map(([id, d]) => `<div class="price-card"><span class="price">${usd(priceFor(id).total)}</span><span>${d.label} · ${d.hours} hrs</span><small>incl. ${usd(priceFor(id).fee)} fee</small></div>`).join("")}
+          <h3>Why ${esc(h.name)} does this</h3>
+          <p>${esc(h.wants)}</p>
+
+          <h3>How you'd meet ${esc(h.name)}</h3>
+          <div class="pass-mini">
+            <span>Included in a ${esc(city().name)} trip pass</span>
+            <b>${usd(passPrice())} <small>for your whole trip</small></b>
+            <small>Up to 4 people traveling together · no fees added later</small>
           </div>
-          <p class="fine">Total for your whole group, up to 4. Includes the ${Math.round(SERVICE_FEE_RATE * 100)}% PengPal fee. Meals, tickets and rides extra.</p>
 
           <h3>Reviews</h3>
           <div class="reviews">
@@ -431,32 +445,43 @@ const screens = {
 
   book() {
     const h = host();
+    const c = city();
     const b = state.booking;
     if (!b.date) b.date = chinaDateISO(14);
-    const pr = priceFor(b.duration);
     const introDone = state.intro.slot
       ? `<div class="done-note">✔ Video intro with ${esc(h.name)}: ${esc(fmtTime(new Date(state.intro.slot), country().tz))} your time</div>`
       : "";
+    const parts = [
+      { title: "A local friend to meet", body: `${h.name} meets you once, in daytime, somewhere public: food, the metro, a neighborhood. They're a language-exchange partner who wants to practice English, not someone you pay.`, note: "If you eat or go somewhere together, you cover your own costs, and their share." },
+      { title: "Help getting around and being understood during your trip", body: "Message PengPal in English any day of your trip: directions, a menu or a message to translate, what to say to a driver." },
+      { title: "Setup before you go", body: "A step-by-step checklist for Alipay, WeChat, an eSIM, Amap, DiDi and the metro, and we answer your questions by message." },
+    ];
     return `
       <section class="pad">
         ${introDone}
-        <div class="intro-head">
-          ${avatar(h)}
-          <div>
-            <h2>Book your day with ${esc(h.name)}</h2>
-            <p class="muted">${esc(city().name)} · after your intro call</p>
-          </div>
+        <p class="eyebrow">${esc(c.name.toUpperCase())} · AFTER YOUR INTRO CALL WITH ${esc(h.name.toUpperCase())}</p>
+        <h2 class="h-big">Your ${esc(c.name)} trip pass</h2>
+        <div class="pass-price">
+          <b>${usd(passPrice())}</b>
+          <span>One price for your whole trip · up to 4 people traveling together · no fees added later.</span>
         </div>
 
-        <label class="field">Trip date
+        <h3>What's included</h3>
+        <ol class="pass-list">
+          ${parts.map((p, i) => `
+            <li>
+              <span class="pass-num" aria-hidden="true">${i + 1}</span>
+              <div>
+                <b>${esc(p.title)}</b>
+                <p>${esc(p.body)}</p>
+                ${p.note ? `<p class="muted small">${esc(p.note)}</p>` : ""}
+              </div>
+            </li>`).join("")}
+        </ol>
+
+        <label class="field">When would you like to meet ${esc(h.name)}?
           <input type="date" data-field="date" value="${b.date}" min="${chinaDateISO(1)}">
         </label>
-
-        <div class="field">How long
-          <div class="seg" role="radiogroup">
-            ${Object.entries(DURATIONS).map(([id, d]) => `<button class="seg-btn ${b.duration === id ? "selected" : ""}" data-action="duration" data-id="${id}" role="radio" aria-checked="${b.duration === id}">${d.label}<small>${d.hours} hrs · ${usd(priceFor(id).total)}</small></button>`).join("")}
-          </div>
-        </div>
 
         <div class="field">Travelers
           <div class="stepper">
@@ -464,18 +489,7 @@ const screens = {
             <span aria-live="polite">${b.party} ${b.party === 1 ? "person" : "people"}</span>
             <button class="icon-btn" data-action="party" data-d="1" aria-label="More travelers" ${b.party >= 4 ? "disabled" : ""}>+</button>
           </div>
-          <small class="muted">Same price for up to 4 people.</small>
-        </div>
-
-        <div class="receipt">
-          <div class="total-big">
-            <span>Total for your group, in USD</span>
-            <b>${usd(pr.total)}</b>
-            <small>${esc(priceNote(b.duration))}</small>
-          </div>
-          <div class="row"><span>${esc(h.name)}'s time · ${DURATIONS[b.duration].short}</span><span>${usd(pr.rate)}</span></div>
-          <div class="row"><span>PengPal service fee (${Math.round(SERVICE_FEE_RATE * 100)}%)</span><span>${usd(pr.fee)}</span></div>
-          <p class="fine">${esc(h.name)} is paid after your trip. Free cancellation up to 48 hours before.</p>
+          <small class="muted">One pass covers up to 4 people.</small>
         </div>
       </section>
       <div class="cta-bar">
@@ -486,19 +500,23 @@ const screens = {
 
   commit() {
     const c = state.commit;
+    const price = usd(passPrice());
     const options = [
-      { id: "deposit", title: "Hold my trip date", body: "$10 deposit, fully refundable. Refunded if we can't match you with a host." },
-      REAL_HOSTS_READY && { id: "intro", title: "Book a free intro call with a real Shanghai host", body: "15 minutes on video. No payment, no obligation." },
+      { id: "deposit", title: "Save my place: $10 refundable deposit toward the pass", body: `It counts toward your ${price} pass. Fully refunded if we can't match you, or if you change your mind.` },
+      REAL_HOSTS_READY && { id: "call", title: `Book a $20 pre-trip video call with a ${city().name} local`, body: "30 minutes before you go: plan your days, ask anything. Refunded if it isn't useful." },
       { id: "notyet", title: "Not yet", body: "Tell us what's missing." },
     ].filter(Boolean);
-    const cta = { deposit: "Hold my date · $10 refundable", intro: "Request my intro call", notyet: "Continue" }[c.choice];
-    const ready = c.choice && (c.choice !== "deposit" || c.month);
+    const cta = { deposit: "Save my place · $10 refundable", call: "Request my $20 call", notyet: "Continue" }[c.choice];
+    const needs = !c.choice ? "Pick one"
+      : c.choice === "deposit" && !c.month ? "Pick your trip month"
+      : c.choice === "notyet" && !c.mostValued ? "Pick the part that matters most"
+      : "";
     return `
       <section class="pad">
         <p class="eyebrow">THIS PART IS REAL</p>
         <h2 class="h-big">Want to make this trip happen?</h2>
         <p class="hint">Everything so far was a prototype with sample hosts. But we're matching real
-          first-timers with real hosts now. If you want in, pick one:</p>
+          first-timers with real local friends now. If you want in, pick one:</p>
         <div class="option-list" role="radiogroup">
           ${options.map((o) => `
             <button class="option ${c.choice === o.id ? "selected" : ""}" data-action="commit-choice" data-id="${o.id}" role="radio" aria-checked="${c.choice === o.id}">
@@ -519,11 +537,15 @@ const screens = {
           <label class="field">What would make you say yes?
             <textarea data-field="commit-reason" rows="3" placeholder="A lower price, more reviews, a host in another city…">${esc(c.reason)}</textarea>
           </label>` : ""}
+        ${c.choice ? `
+          <div class="field">Which part of the pass matters most to you?${c.choice === "notyet" ? "" : ` <span class="muted">(optional)</span>`}
+            <div class="chips" role="radiogroup">
+              ${PASS_PARTS.map((p) => `<button class="chip ${c.mostValued === p.id ? "selected" : ""}" data-action="most-valued" data-id="${p.id}" role="radio" aria-checked="${c.mostValued === p.id}">${esc(p.label)}</button>`).join("")}
+            </div>
+          </div>` : ""}
       </section>
       <div class="cta-bar">
-        <button class="btn btn-primary" data-action="confirm-commit" ${ready ? "" : "disabled"}>
-          ${ready ? cta : c.choice === "deposit" ? "Pick your trip month" : "Pick one"}
-        </button>
+        <button class="btn btn-primary" data-action="confirm-commit" ${needs ? "disabled" : ""}>${needs || cta}</button>
         <p class="fine">We'll follow up by message. Nothing is charged in this prototype.</p>
       </div>`;
   },
@@ -543,7 +565,7 @@ const screens = {
     const doneCount = items.filter((i) => state.checklist[i.id]).length;
     return `
       <section class="pad">
-        <div class="done-note">✔ Booked: ${esc(fmtDate(state.booking.date))} with ${esc(h.name)} · ${DURATIONS[state.booking.duration].short}</div>
+        <div class="done-note">✔ Meetup planned: ${esc(fmtDate(state.booking.date))} with ${esc(h.name)}</div>
         ${state.commit.choice && state.commit.choice !== "notyet" ? `<div class="done-note">✔ ${esc(commitSummary())}</div>` : ""}
         <h2>Get ready for China</h2>
         <p class="hint">${esc(h.name)} added tips to each step. Stuck? We'll fix it together on day one.</p>
@@ -568,7 +590,7 @@ const screens = {
   trip() {
     const h = host();
     const mp = city().meetingPoint;
-    const time = DURATIONS[state.booking.duration].time;
+    const time = MEETUP_TIME;
     return `
       <section class="pad">
         <div class="trip-banner">
@@ -581,7 +603,7 @@ const screens = {
         </div>
 
         <div class="meet">
-          <p class="eyebrow">MEETING POINT · 9:00</p>
+          <p class="eyebrow">MEETING POINT · ${esc(MEETUP_TIME.split(" ")[0])}</p>
           <b>${esc(mp.name)}</b>
           <p class="zh-big">${esc(mp.zh)}</p>
           <p class="muted small">${esc(mp.note)}</p>
@@ -597,7 +619,7 @@ const screens = {
         </form>
       </section>
       <div class="cta-bar">
-        <button class="btn btn-secondary" data-action="go" data-to="review">Trip finished · rate your day</button>
+        <button class="btn btn-secondary" data-action="go" data-to="review">Meetup finished · how did it go?</button>
       </div>`;
   },
 
@@ -609,7 +631,7 @@ const screens = {
       <section class="pad">
         <div class="intro-head">
           ${avatar(h, "avatar-lg")}
-          <div><h2>How was your day with ${esc(h.name)}?</h2></div>
+          <div><h2>How was meeting ${esc(h.name)}?</h2></div>
         </div>
         <div class="star-input" role="radiogroup" aria-label="Rating">
           ${[1, 2, 3, 4, 5].map((n) => `<button class="star ${r.stars >= n ? "on" : ""}" data-action="stars" data-n="${n}" role="radio" aria-checked="${r.stars === n}" aria-label="${n} star${n > 1 ? "s" : ""}">★</button>`).join("")}
@@ -647,6 +669,8 @@ const screens = {
           <div><span>Rating</span><b class="stars">${stars(state.review.stars)}</b></div>
           <div><span>Would recommend</span><b>${state.review.nps ?? "–"} / 10</b></div>
           <div><span>Your next step</span><b>${esc(state.commit.choice ? commitSummary() : "–")}</b></div>
+          ${state.commit.mostValued ? `<div><span>Matters most</span><b>${esc(PASS_PARTS.find((p) => p.id === state.commit.mostValued).label)}</b></div>` : ""}
+          ${state.commit.passPrice ? `<div><span>Pass price shown</span><b>${usd(state.commit.passPrice)}</b></div>` : ""}
         </div>
       </section>
       <div class="cta-bar">
@@ -661,9 +685,9 @@ function commitSummary() {
   if (c.choice === "deposit") {
     const [y, m] = c.month.split("-").map(Number);
     const month = new Intl.DateTimeFormat("en-US", { timeZone: "UTC", month: "short", year: "numeric" }).format(new Date(Date.UTC(y, m - 1, 1)));
-    return `Trip date held: ${month}, ${CITIES[c.city || state.profile.city].name} ($10 refundable)`;
+    return `Place saved: ${month}, ${CITIES[c.city || state.profile.city].name} ($10 refundable, toward a ${usd(c.passPrice || passPrice())} pass)`;
   }
-  if (c.choice === "intro") return "Intro call with a real Shanghai host requested";
+  if (c.choice === "call") return "Pre-trip call requested ($20 refundable)";
   return "Not yet";
 }
 
@@ -785,16 +809,17 @@ document.addEventListener("click", (e) => {
     case "confirm-intro":
       showToast(`Video intro booked with ${host().name}. We'll send a reminder.`);
       return go("book");
-    case "duration": s.booking.duration = el.dataset.id; break;
     case "party": s.booking.party = Math.min(4, Math.max(1, s.booking.party + Number(el.dataset.d))); break;
     case "commit-choice":
       s.commit.choice = el.dataset.id;
       if (!s.commit.city) s.commit.city = s.profile.city;
       break;
+    case "most-valued": s.commit.mostValued = el.dataset.id; break;
     case "confirm-commit":
+      s.commit.passPrice = passPrice();
       showToast({
-        deposit: "Thanks! We'll message you a $10 refundable deposit request to hold your date.",
-        intro: "Thanks! We'll message you times for a call with a real host.",
+        deposit: "Thanks! We'll message you a $10 refundable deposit request to save your place.",
+        call: "Thanks! We'll message you a $20 refundable call request and some times.",
         notyet: "Thanks for telling us. It really helps.",
       }[s.commit.choice]);
       return go("prep");
