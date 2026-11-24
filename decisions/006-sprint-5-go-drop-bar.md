@@ -76,3 +76,30 @@ will be made; the result is added to the review as a dated update.
   what the pass includes (decision 005).
 - **Travelers qualify but pay nothing because of payment friction** (for example, the payment
   link fails): fix it and count only the sessions that ran with a working payment link.
+
+## Result
+
+**Nov 23, 2026: Go, called early by the product lead.**
+
+The count when the call was made (from T19–T26, `discovery/PengPal/Interviews/findings-sprint-5.md`):
+- 8 qualified travelers in a session; 5 of 8 paid (T19, T22, T23, T25, T26); no refund requests.
+- 1 payment past the 7-day check (T19). 4 still in their refund window: T22 and T23 until Nov 24,
+  T25 and T26 until Nov 26.
+- The bar is 4 of 8 kept for 7 days. It's met if at least 3 of the 4 pending payers don't ask for
+  a refund.
+
+**Called before the bar's date.** This record says the call comes when the last refund window
+closes (Nov 26). The product lead made it on Nov 23. The Nov 24 and Nov 26 checks are still
+recorded below. If refunds bring the count under 4 of 8, that goes here as a dated update, and the
+go is reviewed against the bar.
+
+**Also logged in the findings:**
+- Only 2 of 8 sessions offered both options.
+- The sessions ran on v2, not the spec 006 prototype.
+- T-notes were written Nov 23, not on the session days.
+- 2 travelers knew the team before.
+
+| Check | Due | Result |
+|---|---|---|
+| T22, T23 refund window | Nov 24 | pending |
+| T25, T26 refund window | Nov 26 | pending |

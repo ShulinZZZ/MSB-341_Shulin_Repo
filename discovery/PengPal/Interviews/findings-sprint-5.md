@@ -71,8 +71,9 @@ A payment counts only if the person paid, didn't ask for a refund, and the 7-day
 
 ## Result
 
-**No decision yet. The final call is on Nov 26**, when the last refund window closes (decision 006,
-"Late payments").
+**Go, called early by the product lead on Nov 23** (recorded in decision 006, "Result"). Decision
+006 puts the call on Nov 26, when the last refund window closes. The Nov 24 and Nov 26 checks are
+still recorded, and any refund goes in as a dated update.
 
 5 of 8 qualified travelers paid, and none has asked for a refund. 1 has passed the 7-day check, and
 the other 4 finish on Nov 24 and Nov 26. The bar is met if at least 3 of those 4 keep their
@@ -127,8 +128,7 @@ the go/drop discussion. It also matches `../competitors.md`: AI apps are the clo
 ## Next step
 
 - Nov 24: check T22 and T23 for refund requests. Update their T-notes, then this file.
-- Nov 26: check T25 and T26, then make the final go/drop call. Add it as a dated update to
-  `sprints/sprint-5-review.md` and decision 006.
+- Nov 26: check T25 and T26. Record both checks in decision 006 and as a dated update to
+  `sprints/sprint-5-review.md`. If refunds bring the count under 4 of 8, review the go against the bar.
 - Deliver the 3 paid $20 calls (T19, T23, T26) with a Shanghai host, and log each in its T-note.
-- [If go: what we do next, e.g. register the company in January]
-- [If drop: what we do instead]
+- Go: next steps to be set in Sprint 6 planning.
